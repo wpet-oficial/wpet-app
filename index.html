@@ -3,262 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WPet - Conforto que Cura</title>
+    <title>WPet - Pedido Inteligente</title>
     <link rel="icon" type="image/png" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; padding-bottom: 90px; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         .bg-jade { background-color: #80CBC4; }
         .text-jade { color: #00695C; }
-        .animate-slide-up { animation: slideUp 0.4s ease-out; }
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        .product-card img { transition: transform 0.3s; }
-        .product-card:hover img { transform: scale(1.05); }
+        .slide-img { transition: opacity 0.5s ease-in-out; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-slate-50 text-slate-900 pb-20">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 h-20 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
             <div onclick="showSection('home')" class="flex items-center gap-3 cursor-pointer">
-                <img src="logo.png" alt="WPet Logo" class="h-12 w-auto onerror='this.src=\"https://via.placeholder.com/50?text=WPet\"'">
-                <span class="text-xl font-extrabold tracking-tighter uppercase hidden sm:block">WPET<span class="text-jade">.</span></span>
+                <img src="logo.png" alt="WPet" class="h-12 w-auto" onerror="this.src='https://via.placeholder.com/120x50?text=WPET'">
             </div>
-            <div class="flex items-center gap-4">
-                <div id="atacado-alert" class="hidden bg-green-600 text-white text-[10px] font-black px-3 py-1.5 rounded-full animate-bounce">ATACADO ATIVADO!</div>
-                <div onclick="showSection('carrinho')" class="relative cursor-pointer p-2 bg-slate-100 rounded-full">
-                    <i data-lucide="shopping-cart" class="w-5 h-5"></i>
-                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-jade text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold shadow-sm">0</span>
-                </div>
+            <div onclick="showSection('carrinho')" class="relative cursor-pointer p-3 bg-slate-100 rounded-2xl">
+                <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                <span id="cart-badge" class="absolute -top-1 -right-1 bg-jade text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full font-bold">0</span>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto">
-        
-        <section id="sec-home" class="p-4 space-y-8 animate-slide-up">
-            <div class="bg-slate-900 rounded-[3rem] p-10 text-white relative overflow-hidden">
-                <div class="relative z-10 max-w-lg">
-                    <h1 class="text-4xl font-black mb-4">Tecnologia Têxtil para o Bem-estar Animal.</h1>
-                    <p class="text-slate-400 mb-8 leading-relaxed">Na WPet, unimos anatomia e conforto. Nossas roupas são feitas com tecido respirável, ajuste anatômico e durabilidade garantida para uma recuperação segura.</p>
-                    <div class="flex gap-4">
-                        <button onclick="showSection('loja')" class="bg-jade text-white px-8 py-4 rounded-2xl font-black text-sm hover:brightness-110 transition-all">ABRIR LOJA</button>
-                    </div>
-                </div>
-                <i data-lucide="shield-check" class="absolute right-[-20px] bottom-[-20px] w-64 h-64 text-white/5"></i>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
-                    <div class="text-jade mb-4"><i data-lucide="wind" class="w-10 h-10"></i></div>
-                    <h3 class="font-bold text-lg mb-2">Respirável</h3>
-                    <p class="text-slate-500 text-sm italic">Tecido de alta tecnologia que evita umidade e protege a sutura.</p>
-                </div>
-                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
-                    <div class="text-jade mb-4"><i data-lucide="activity" class="w-10 h-10"></i></div>
-                    <h3 class="font-bold text-lg mb-2">Anatômico</h3>
-                    <p class="text-slate-500 text-sm italic">Design que respeita os movimentos naturais do pet sem causar estresse.</p>
-                </div>
-                <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100">
-                    <div class="text-jade mb-4"><i data-lucide="truck" class="w-10 h-10"></i></div>
-                    <h3 class="font-bold text-lg mb-2">Logística Ágil</h3>
-                    <p class="text-slate-500 text-sm italic">Integração total com Correios e Transportadoras para todo o Brasil.</p>
-                </div>
-            </div>
-
-            <div class="bg-white p-10 rounded-[3rem] border border-slate-100">
-                <h2 class="text-2xl font-black mb-8 text-center">O que dizem nossos parceiros</h2>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <blockquote class="border-l-4 border-jade pl-6">
-                        <p class="italic text-slate-600 mb-4">"A qualidade da WPet é incomparável. Os clientes da clínica notam o conforto imediato no pós-operatório."</p>
-                        <cite class="font-bold text-sm">— Dr. Marcos, Veterinário</cite>
-                    </blockquote>
-                    <blockquote class="border-l-4 border-jade pl-6">
-                        <p class="italic text-slate-600 mb-4">"As estampas Zoo Fun são um sucesso de vendas no meu Pet Shop. Giro rápido e margem excelente."</p>
-                        <cite class="font-bold text-sm">— Ana Silva, Lojista</cite>
-                    </blockquote>
-                </div>
-            </div>
-        </section>
-
-        <section id="sec-loja" class="hidden p-4">
-            <div class="flex gap-4 mb-8 sticky top-20 bg-slate-50/90 backdrop-blur py-4 z-30">
-                <button onclick="filterCat('cirurgica')" id="t-cirurgica" class="bg-jade text-white px-6 py-2 rounded-xl font-bold text-xs shadow-md">Pós-Cirúrgica</button>
-                <button onclick="filterCat('ortopedica')" id="t-ortopedica" class="bg-white text-slate-400 px-6 py-2 rounded-xl font-bold text-xs border border-slate-100">Ortopédica</button>
-            </div>
-            <div id="grid-produtos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
-        </section>
-
-        <section id="sec-carrinho" class="hidden p-4">
-            <h2 class="text-2xl font-black mb-6">Meu Pedido</h2>
-            <div id="cart-items" class="space-y-4 mb-8"></div>
-            <div id="cart-footer" class="hidden bg-white p-8 rounded-[3rem] border border-slate-100 shadow-xl">
-                <div class="space-y-2 mb-6">
-                    <div class="flex justify-between font-bold"><span>Total Itens:</span><span id="f-qty">0</span></div>
-                    <div class="flex justify-between font-bold text-jade"><span>Peso Estimado:</span><span id="f-weight">0kg</span></div>
-                </div>
-                <button onclick="showSection('loja')" class="w-full bg-slate-100 text-slate-600 py-4 rounded-2xl font-bold mb-3 uppercase text-xs">Continuar Comprando</button>
-                <button onclick="sendWhatsApp()" class="w-full bg-green-600 text-white py-5 rounded-2xl font-black shadow-lg flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle"></i> FINALIZAR NO WHATSAPP
-                </button>
-            </div>
-        </section>
-
-        <div id="modal-assistente" class="hidden fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-4">
-            <div class="bg-white w-full max-w-lg rounded-[2.5rem] overflow-hidden shadow-2xl animate-slide-up">
-                <div class="bg-slate-900 p-6 text-white flex justify-between items-center">
-                    <div class="flex items-center gap-3">
-                        <i data-lucide="bot" class="text-jade"></i>
-                        <span class="font-black text-sm uppercase tracking-widest">Configurador WPet</span>
-                    </div>
-                    <button onclick="closeAssist()"><i data-lucide="x"></i></button>
-                </div>
-                <div id="chat-win" class="p-6 h-[350px] overflow-y-auto space-y-4 bg-slate-50 flex flex-col"></div>
-                <div id="chat-act" class="p-6 bg-white border-t flex flex-wrap gap-2"></div>
+    <section id="sec-home-banner" class="max-w-7xl mx-auto p-4">
+        <div class="w-full h-[300px] md:h-[500px] bg-slate-900 rounded-[3rem] overflow-hidden relative group">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 flex flex-col justify-center p-8 md:p-16">
+                <h1 class="text-white text-3xl md:text-6xl font-extrabold mb-4 leading-tight">Onde a tecnologia<br>encontra o carinho.</h1>
+                <p class="text-slate-200 text-sm md:text-lg max-w-xl mb-8">Roupas projetadas para uma recuperação 100% segura, confortável e sem estresse para o seu pet.</p>
+                <button onclick="showSection('loja')" class="bg-jade text-white px-8 py-4 rounded-2xl font-black w-fit hover:scale-105 transition-transform">ESCOLHER MODELO AGORA</button>
             </div>
         </div>
+    </section>
 
-    </main>
+    <section class="max-w-7xl mx-auto p-4 grid md:grid-cols-2 gap-8 my-12">
+        <div class="bg-white p-8 rounded-[3rem] shadow-sm border border-blue-50">
+            <h2 class="text-2xl font-black text-blue-600 mb-6 flex items-center gap-2">
+                <i data-lucide="heart-pulse"></i> Roupa Pós-Cirúrgica
+            </h2>
+            <ul class="space-y-4 text-sm text-slate-600">
+                <li class="flex gap-2"><b>•</b> Proteção dos pontos evitando lambeduras e infecções.</li>
+                <li class="flex gap-2"><b>•</b> Suporte e compressão que aceleram a cicatrização.</li>
+                <li class="flex gap-2"><b>•</b> Substitui o colar elizabetano com muito mais conforto.</li>
+                <li class="flex gap-2"><b>•</b> Redução da ansiedade e sensação de segurança.</li>
+                <li class="flex gap-2"><b>•</b> Versátil: ideal para castração e cirurgias abdominais.</li>
+            </ul>
+        </div>
+        <div class="bg-white p-8 rounded-[3rem] shadow-sm border border-emerald-50">
+            <h2 class="text-2xl font-black text-emerald-600 mb-6 flex items-center gap-2">
+                <i data-lucide="activity"></i> Roupa Ortopédica
+            </h2>
+            <ul class="space-y-4 text-sm text-slate-600">
+                <li class="flex gap-2"><b>•</b> Suporte e estabilidade para membros pélvicos e torácicos.</li>
+                <li class="flex gap-2"><b>•</b> Compatível com próteses e dispositivos de reforço.</li>
+                <li class="flex gap-2"><b>•</b> Auxílio direto na fisioterapia e reabilitação motora.</li>
+                <li class="flex gap-2"><b>•</b> Proteção contra novos traumas e movimentos bruscos.</li>
+                <li class="flex gap-2"><b>•</b> Conforto contínuo sem limitar totalmente a mobilidade.</li>
+            </ul>
+        </div>
+    </section>
 
-    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-100 px-6 py-4 flex justify-between items-center z-50">
-        <button onclick="showSection('home')" class="flex flex-col items-center gap-1 text-slate-400 nav-link" id="n-home"><i data-lucide="home"></i><span class="text-[10px] font-bold">Home</span></button>
-        <button onclick="showSection('loja')" class="flex flex-col items-center gap-1 text-slate-400 nav-link" id="n-loja"><i data-lucide="layout-grid"></i><span class="text-[10px] font-bold">Loja</span></button>
-        <button onclick="showSection('carrinho')" class="flex flex-col items-center gap-1 text-slate-400 nav-link" id="n-carrinho"><i data-lucide="shopping-basket"></i><span class="text-[10px] font-bold">Carrinho</span></button>
-        <a href="https://www.instagram.com/wpet.oficial/" target="_blank" class="flex flex-col items-center gap-1 text-slate-400"><i data-lucide="instagram"></i><span class="text-[10px] font-bold">Instagram</span></a>
+    <section id="sec-loja" class="hidden p-4 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-black mb-8">Nossa Vitrine</h2>
+        
+        <h3 class="text-xl font-bold mb-6 text-blue-600 border-b pb-2">Linha Pós-Cirúrgica</h3>
+        <div id="grid-pos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"></div>
+
+        <h3 class="text-xl font-bold mb-6 text-emerald-600 border-b pb-2">Linha Ortopédica</h3>
+        <div id="grid-orto" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"></div>
+    </section>
+
+    <section id="sec-carrinho" class="hidden p-4 max-w-2xl mx-auto">
+        <h2 class="text-2xl font-black mb-8">Itens Selecionados</h2>
+        <div id="cart-list" class="space-y-4"></div>
+        <div id="cart-summary" class="hidden mt-8 bg-white p-8 rounded-[3rem] shadow-xl border border-slate-100">
+            </div>
+    </section>
+
+    <div id="modal-assist" class="hidden fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-[2.5rem] overflow-hidden shadow-2xl">
+            <div class="bg-slate-900 p-6 text-white flex justify-between items-center">
+                <span class="font-black text-xs uppercase tracking-widest">Assistente WPet</span>
+                <button onclick="closeAssist()"><i data-lucide="x"></i></button>
+            </div>
+            <div id="chat-win" class="p-6 h-[400px] overflow-y-auto space-y-4 bg-slate-50 flex flex-col"></div>
+            <div id="chat-act" class="p-6 bg-white border-t flex flex-wrap gap-2"></div>
+        </div>
+    </div>
+
+    <section id="sec-depoimentos" class="max-w-7xl mx-auto p-4 my-12">
+        <h2 class="text-2xl font-black mb-8 text-center">Parceiros que Confiam</h2>
+        <div id="depo-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 overflow-y-auto h-[400px] p-4 bg-white rounded-3xl border"></div>
+    </section>
+
+    <div class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-md border-t px-8 py-4 flex justify-between items-center z-50">
+        <button onclick="showSection('home')" class="flex flex-col items-center gap-1 text-slate-400 nav-l" id="l-home"><i data-lucide="home"></i><span class="text-[10px] font-bold">Home</span></button>
+        <button onclick="showSection('loja')" class="flex flex-col items-center gap-1 text-slate-400 nav-l" id="l-loja"><i data-lucide="layout-grid"></i><span class="text-[10px] font-bold">Loja</span></button>
+        <button onclick="showSection('carrinho')" class="flex flex-col items-center gap-1 text-slate-400 nav-l" id="l-carrinho"><i data-lucide="shopping-basket"></i><span class="text-[10px] font-bold">Pedido</span></button>
     </div>
 
     <script>
         lucide.createIcons();
         const WA_NUMBER = "5524992618871";
         let cart = [];
-        let currentItem = {};
+        let cur = {};
 
-        const catalog = [
-            { id: 1, cat: 'cirurgica', name: 'Rosa Candy', desc: 'Um tom doce e delicado, perfeito para transmitir carinho e leveza.', img: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=500' },
-            { id: 2, cat: 'cirurgica', name: 'Azul Céu', desc: 'Vibrante e moderno, remete à liberdade e frescor.', img: 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=500' },
-            { id: 3, cat: 'cirurgica', name: 'Verde Oceânico', desc: 'Profundo e sofisticado, inspirado na intensidade do mar.', img: 'https://images.unsplash.com/photo-1541591415600-61e62747c29e?w=500' },
-            { id: 4, cat: 'cirurgica', name: 'Verde Jade', desc: 'Suave e refinado, evoca equilíbrio e bem-estar.', img: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=500' },
-            { id: 5, cat: 'ortopedica', name: 'Love', desc: 'Romântica e divertida, transmite afeto e alegria.', img: 'https://images.unsplash.com/photo-1591768793355-74d7c836038c?w=500' },
-            { id: 6, cat: 'ortopedica', name: 'Praia Viva', desc: 'Tropical e descontraída, traz energia positiva e espírito de verão.', img: 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=500' },
-            { id: 7, cat: 'ortopedica', name: 'Zoo Fun', desc: 'Lúdica e amigável, desperta simpatia e alegria.', img: 'https://images.unsplash.com/photo-1544568100-847a948585b9?w=500' },
-            { id: 8, cat: 'ortopedica', name: 'Happy Mood', desc: 'Criativa e cheia de energia, transmite bom humor.', img: 'https://images.unsplash.com/photo-1530281703222-d309c17315fa?w=500' }
+        const items = [
+            { name: 'Rosa Candy', cat: 'Pós-Cirúrgica', imgs: ['https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400', 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400', 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400'] },
+            { name: 'Azul Céu', cat: 'Pós-Cirúrgica', imgs: ['https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400', 'https://images.unsplash.com/photo-1544568100-847a948585b9?w=400', 'https://images.unsplash.com/photo-1530281703222-d309c17315fa?w=400'] },
+            { name: 'Verde Oceânico', cat: 'Pós-Cirúrgica', imgs: ['https://images.unsplash.com/photo-1541591415600-61e62747c29e?w=400', 'https://images.unsplash.com/photo-1544568100-847a948585b9?w=400', 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400'] },
+            { name: 'Verde Jade', cat: 'Pós-Cirúrgica', imgs: ['https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400', 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400', 'https://images.unsplash.com/photo-1530281703222-d309c17315fa?w=400'] },
+            { name: 'Love', cat: 'Pós-Cirúrgica', imgs: ['https://images.unsplash.com/photo-1591768793355-74d7c836038c?w=400', 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400', 'https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?w=400'] },
+            { name: 'Praia Viva', cat: 'Pós-Cirúrgica', imgs: ['https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=400', 'https://images.unsplash.com/photo-1541591415600-61e62747c29e?w=400', 'https://images.unsplash.com/photo-1544568100-847a948585b9?w=400'] },
+            { name: 'Zoo Fun', cat: 'Pós-Cirúrgica', imgs: ['https://images.unsplash.com/photo-1544568100-847a948585b9?w=400', 'https://images.unsplash.com/photo-1530281703222-d309c17315fa?w=400', 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400'] },
+            { name: 'Happy Mood', cat: 'Pós-Cirúrgica', imgs: ['https://images.unsplash.com/photo-1530281703222-d309c17315fa?w=400', 'https://images.unsplash.com/photo-1591768793355-74d7c836038c?w=400', 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400'] }
         ];
 
+        // Duplicar para Ortopédica
+        const itemsOrto = items.map(i => ({...i, cat: 'Ortopédica'}));
+
+        function renderGrid(data, id) {
+            const container = document.getElementById(id);
+            data.forEach((p, idx) => {
+                const pId = id + idx;
+                container.innerHTML += `
+                    <div class="bg-white p-4 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col group">
+                        <div class="relative w-full h-48 mb-4 overflow-hidden rounded-3xl cursor-pointer" onclick="openAssist('${p.name}', '${p.cat}')">
+                            ${p.imgs.map((img, i) => `<img src="${img}" class="slide-img slide-${pId} absolute inset-0 w-full h-full object-cover ${i === 0 ? 'opacity-100' : 'opacity-0'}">`).join('')}
+                        </div>
+                        <h3 class="font-black text-sm mb-1">${p.name}</h3>
+                        <p class="text-[10px] text-slate-400 mb-4 uppercase font-bold tracking-widest">${p.cat}</p>
+                        <button onclick="openAssist('${p.name}', '${p.cat}')" class="w-full bg-slate-900 text-white py-3 rounded-2xl text-[10px] font-black uppercase hover:bg-jade transition-all">Escolher esse modelo</button>
+                    </div>
+                `;
+                startSlide(`slide-${pId}`);
+            });
+        }
+
+        function startSlide(cls) {
+            let curS = 0;
+            const imgs = document.getElementsByClassName(cls);
+            setInterval(() => {
+                imgs[curS].style.opacity = '0';
+                curS = (curS + 1) % imgs.length;
+                imgs[curS].style.opacity = '1';
+            }, 3000);
+        }
+
         function showSection(id) {
-            document.querySelectorAll('main > section').forEach(s => s.classList.add('hidden'));
+            document.querySelectorAll('main > section, body > section').forEach(s => s.classList.add('hidden'));
             document.getElementById('sec-' + id).classList.remove('hidden');
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.replace('text-jade', 'text-slate-400'));
-            document.getElementById('n-' + id).classList.replace('text-slate-400', 'text-jade');
-            if(id === 'loja') filterCat('cirurgica');
+            if(id === 'home') document.getElementById('sec-home-banner').classList.remove('hidden'), document.getElementById('sec-depoimentos').classList.remove('hidden');
             if(id === 'carrinho') renderCart();
             window.scrollTo(0,0);
         }
 
-        function filterCat(cat) {
-            const grid = document.getElementById('grid-produtos');
-            grid.innerHTML = '';
-            document.getElementById('t-cirurgica').className = cat === 'cirurgica' ? "bg-jade text-white px-6 py-2 rounded-xl font-bold text-xs" : "bg-white text-slate-400 px-6 py-2 rounded-xl font-bold text-xs border";
-            document.getElementById('t-ortopedica').className = cat === 'ortopedica' ? "bg-jade text-white px-6 py-2 rounded-xl font-bold text-xs" : "bg-white text-slate-400 px-6 py-2 rounded-xl font-bold text-xs border";
-            
-            catalog.filter(p => p.cat === cat).forEach(p => {
-                grid.innerHTML += `
-                    <div class="product-card bg-white p-5 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col h-full">
-                        <img src="${p.img}" class="w-full h-48 object-cover rounded-3xl mb-4">
-                        <h3 class="font-black text-lg mb-2">${p.name}</h3>
-                        <p class="text-xs text-slate-500 mb-4 flex-grow italic">"${p.desc}"</p>
-                        <button onclick="openAssist('${p.name}', '${p.cat}')" class="w-full bg-slate-900 text-white py-3.5 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-jade transition-all">Configurar e Pedir</button>
-                    </div>
-                `;
-            });
-        }
-
         function openAssist(name, cat) {
-            currentItem = { name, cat };
-            document.getElementById('modal-assistente').classList.remove('hidden');
+            cur = { name, cat };
+            document.getElementById('modal-assist').classList.remove('hidden');
             document.getElementById('chat-win').innerHTML = '';
-            talk(`Olá! Escolheu o modelo <b>${name}</b>. Qual o sexo do pet?`);
+            talk(`Modelo: <b>${name} (${cat})</b>. Qual o sexo do pet?`);
             document.getElementById('chat-act').innerHTML = `
-                <button onclick="setStep('sexo', 'Macho')" class="bg-jade text-white px-6 py-2 rounded-xl font-bold text-xs">Macho</button>
-                <button onclick="setStep('sexo', 'Fêmea')" class="bg-jade text-white px-6 py-2 rounded-xl font-bold text-xs">Fêmea</button>
+                <button onclick="step('sexo', 'Macho')" class="bg-jade text-white px-6 py-2 rounded-xl font-bold text-xs">Macho</button>
+                <button onclick="step('sexo', 'Fêmea')" class="bg-jade text-white px-6 py-2 rounded-xl font-bold text-xs">Fêmea</button>
             `;
         }
 
-        function talk(txt, side = 'bot') {
-            const win = document.getElementById('chat-win');
+        function talk(t, s = 'bot') {
             const d = document.createElement('div');
-            d.className = side === 'bot' ? "bg-slate-100 p-4 rounded-2xl text-xs max-w-[85%] self-start border border-slate-200" : "bg-jade text-white p-4 rounded-2xl text-xs max-w-[85%] self-end font-bold shadow-md";
-            d.innerHTML = txt;
-            win.appendChild(d);
-            win.scrollTop = win.scrollHeight;
+            d.className = s === 'bot' ? "bg-slate-100 p-4 rounded-2xl text-xs max-w-[85%] self-start border" : "bg-jade text-white p-4 rounded-2xl text-xs max-w-[85%] self-end font-bold shadow-md";
+            d.innerHTML = t;
+            document.getElementById('chat-win').appendChild(d);
+            document.getElementById('chat-win').scrollTop = 9999;
         }
 
-        function setStep(f, v) {
-            currentItem[f] = v;
-            talk(v, 'user');
+        function step(f, v) {
+            cur[f] = v; talk(v, 'user');
             if(f === 'sexo') {
-                talk("Qual o <b>peso</b> aproximado em kg?");
-                document.getElementById('chat-act').innerHTML = `<input type="number" id="w-in" class="border-2 border-jade p-2 rounded-xl w-20 text-xs focus:outline-none" placeholder="kg"><button onclick="setStep('peso', document.getElementById('w-in').value)" class="bg-slate-900 text-white px-6 py-2 rounded-xl font-bold text-xs">OK</button>`;
+                talk("Qual o <b>peso</b> (kg)?");
+                document.getElementById('chat-act').innerHTML = `<input type="number" id="w" class="border p-2 rounded-xl w-24 text-sm" placeholder="Ex: 5"><button onclick="step('peso', document.getElementById('w').value)" class="bg-slate-900 text-white px-4 py-2 rounded-xl font-bold text-xs">OK</button>`;
             } else if(f === 'peso') {
-                currentItem.size = v <= 3 ? "00" : v <= 6 ? "01" : v <= 10 ? "02" : "03";
-                talk(`Recomendamos o tamanho <b>${currentItem.size}</b>. Qual a <b>quantidade</b>?`);
-                document.getElementById('chat-act').innerHTML = `<input type="number" id="q-in" class="border-2 border-jade p-2 rounded-xl w-20 text-xs" value="1"><button onclick="setStep('qtd', document.getElementById('q-in').value)" class="bg-slate-900 text-white px-6 py-2 rounded-xl font-bold text-xs">OK</button>`;
+                cur.tam = v <= 3 ? "01" : v <= 7 ? "02" : "03";
+                talk(`Tamanho <b>${cur.tam}</b> calculado. Quantas unidades?`);
+                document.getElementById('chat-act').innerHTML = `<input type="number" id="q" class="border p-2 rounded-xl w-24 text-sm" value="1"><button onclick="step('qtd', document.getElementById('q').value)" class="bg-slate-900 text-white px-4 py-2 rounded-xl font-bold text-xs">OK</button>`;
             } else if(f === 'qtd') {
-                talk("Qual a <b>forma de pagamento</b> preferida?");
-                document.getElementById('chat-act').innerHTML = `
-                    <button onclick="setStep('pag', 'PIX')" class="border p-2 rounded-lg text-[10px] font-bold">PIX</button>
-                    <button onclick="setStep('pag', 'Cartão')" class="border p-2 rounded-lg text-[10px] font-bold">Cartão</button>
-                    <button onclick="setStep('pag', 'Boleto')" class="border p-2 rounded-lg text-[10px] font-bold">Boleto</button>`;
+                talk("Forma de <b>pagamento</b>?");
+                document.getElementById('chat-act').innerHTML = `['PIX', 'Cartão', 'Boleto'].map(p => <button onclick="step('pag', '${p}')" class="border p-2 rounded-lg text-[10px] font-bold">${p}</button>).join('')`;
+                // Ajuste rápido no JS do map que não roda direto em string:
+                let btns = ['PIX', 'Cartão', 'Boleto'].map(p => `<button onclick="step('pag', '${p}')" class="border px-4 py-2 rounded-xl text-[10px] font-bold hover:bg-slate-50">${p}</button>`).join('');
+                document.getElementById('chat-act').innerHTML = btns;
             } else if(f === 'pag') {
-                const totalPeso = currentItem.qtd * 0.1;
-                talk(`Peso total: ${totalPeso.toFixed(1)}kg. Qual a <b>forma de envio</b>?`);
-                document.getElementById('chat-act').innerHTML = `
-                    <button onclick="finalizeOrder('Correios')" class="border p-2 rounded-lg text-[10px] font-bold">Correios</button>
-                    <button onclick="finalizeOrder('Transportadora')" class="border p-2 rounded-lg text-[10px] font-bold">Transportadora</button>`;
+                const pesoT = (cur.qtd * 0.1).toFixed(1);
+                talk(`Peso: ${pesoT}kg. Escolha o <b>envio</b>:`);
+                const fretes = `
+                    <button onclick="addCart('Correios', 28.90)" class="border p-3 rounded-xl text-[10px] block w-full text-left">📦 Correios: R$ 28,90</button>
+                    <button onclick="addCart('Jadlog', 32.50)" class="border p-3 rounded-xl text-[10px] block w-full text-left">🚚 Jadlog: R$ 32,50</button>
+                    <button onclick="addCart('Total Express', 30.00)" class="border p-3 rounded-xl text-[10px] block w-full text-left">⚡ Total Express: R$ 30,00</button>
+                `;
+                document.getElementById('chat-act').innerHTML = fretes;
             }
         }
 
-        function finalizeOrder(envio) {
-            currentItem.envio = envio;
-            cart.push({...currentItem});
-            updateBadges();
-            closeAssist();
-            showSection('carrinho');
+        function addCart(env, valor) {
+            cur.env = env; cur.frete = valor;
+            cart.push({...cur});
+            updateBadges(); closeAssist(); showSection('carrinho');
         }
 
         function updateBadges() {
-            const total = cart.reduce((acc, i) => acc + parseInt(i.qtd), 0);
-            document.getElementById('cart-badge').innerText = total;
-            document.getElementById('atacado-alert').classList.toggle('hidden', total < 20);
+            document.getElementById('cart-badge').innerText = cart.length;
         }
 
         function renderCart() {
-            const list = document.getElementById('cart-items');
-            const foot = document.getElementById('cart-footer');
-            if(cart.length === 0) { list.innerHTML = `<div class="text-center py-20 text-slate-400 italic">Carrinho vazio</div>`; foot.classList.add('hidden'); return; }
-            foot.classList.remove('hidden');
-            list.innerHTML = '';
-            cart.forEach((i, idx) => {
-                list.innerHTML += `<div class="bg-white p-5 rounded-3xl flex justify-between items-center shadow-sm border"><div><p class="font-black text-sm">${i.name} (${i.size})</p><p class="text-[10px] text-slate-400 uppercase font-bold">${i.pag} | ${i.envio}</p></div><div class="flex items-center gap-4"><span class="font-black text-jade">${i.qtd}un</span><button onclick="remove(${idx})" class="text-red-400 bg-red-50 p-2 rounded-lg"><i data-lucide="trash-2" class="w-4 h-4"></i></button></div></div>`;
-            });
-            const tQ = cart.reduce((acc, i) => acc + parseInt(i.qtd), 0);
-            document.getElementById('f-qty').innerText = tQ;
-            document.getElementById('f-weight').innerText = (tQ * 0.1).toFixed(1) + 'kg';
+            const list = document.getElementById('cart-list');
+            const sum = document.getElementById('cart-summary');
+            if(cart.length === 0) { list.innerHTML = "Vazio"; sum.classList.add('hidden'); return; }
+            sum.classList.remove('hidden');
+            list.innerHTML = cart.map((i, idx) => `
+                <div class="bg-white p-5 rounded-3xl flex justify-between items-center shadow-sm border">
+                    <div><p class="font-black text-sm">${i.name} (${i.tam})</p><p class="text-[10px] text-slate-400 font-bold">${i.cat} - ${i.qtd}un</p></div>
+                    <button onclick="remove(${idx})" class="text-red-400 bg-red-50 p-2 rounded-lg"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+                </div>
+            `).join('');
+            const tQ = cart.reduce((a, b) => a + parseInt(b.qtd), 0);
+            sum.innerHTML = `
+                <div class="space-y-2 mb-6 text-sm">
+                    <div class="flex justify-between font-bold"><span>Total Itens:</span><span>${tQ} un</span></div>
+                    <div class="flex justify-between font-bold text-jade"><span>Peso Total:</span><span>${(tQ * 0.1).toFixed(1)}kg</span></div>
+                </div>
+                <button onclick="sendWA()" class="w-full bg-green-600 text-white py-5 rounded-2xl font-black shadow-lg">Finalizar Pedido</button>
+            `;
             lucide.createIcons();
         }
 
         function remove(idx) { cart.splice(idx, 1); updateBadges(); renderCart(); }
-        function closeAssist() { document.getElementById('modal-assistente').classList.add('hidden'); }
+        function closeAssist() { document.getElementById('modal-assist').classList.add('hidden'); }
 
-        function sendWhatsApp() {
-            const tQ = cart.reduce((acc, i) => acc + parseInt(i.qtd), 0);
-            const pT = (tQ * 0.1).toFixed(1);
-            let lista = cart.map(i => `• ${i.qtd}x ${i.name} (Tam: ${i.size}) - ${i.pag}/${i.envio}`).join('\n');
-            const msg = `Olá WPet! Gostaria de finalizar meu pedido:\n---\n${lista}\n---\n📦 Total: ${tQ} itens | ⚖️ Peso: ${pT}kg\n${tQ >= 20 ? '🚀 *APLICAR DESCONTO ATACADO*' : ''}\n\n_Aguardo o atendimento para finalizar!_`;
-            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`);
+        function sendWA() {
+            let t = cart.map(i => `• ${i.qtd}x ${i.name} [${i.cat}] - Tam: ${i.tam} (${i.pag}/${i.env})`).join('\n');
+            window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Olá WPet! Pedido:\n" + t)}`);
         }
-        
+
+        // 20 Depoimentos
+        const dGrid = document.getElementById('depo-grid');
+        for(let i=1; i<=20; i++) {
+            dGrid.innerHTML += `<div class="p-4 bg-slate-50 rounded-2xl text-[10px] italic">"Parceiro ${i}: Produto nota 10, meus clientes amam!"</div>`;
+        }
+
+        renderGrid(items, 'grid-pos');
+        renderGrid(itemsOrto, 'grid-orto');
         showSection('home');
     </script>
 </body>
