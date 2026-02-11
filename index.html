@@ -16,6 +16,10 @@ body { font-family: system-ui, sans-serif; }
 .nav-active { color:#00695C !important; font-weight:700; }
 .hero-bg { background: linear-gradient(135deg,#004D40,#00796B); }
 .product-card:hover { transform: translateY(-4px); transition: 0.3s; }
+.logo-overlap {
+height: 52px;
+margin-top: 18px; /* faz sobrepor suavemente o verde */
+}
 </style>
 </head>
 
@@ -23,9 +27,12 @@ body { font-family: system-ui, sans-serif; }
 
 <!-- NAV -->
 <nav class="fixed top-0 left-0 right-0 bg-white shadow z-50 h-16 flex justify-between items-center px-6">
-<div class="flex items-center gap-3 cursor-pointer" onclick="showSection('home')">
-<img src="logo.png" class="h-10 w-auto">
-<span class="font-black text-xl">WPet</span>
+<div class="flex items-center cursor-pointer relative" onclick="showSection('home')">
+
+<img src="logo.png" class="logo-overlap relative z-20">
+
+<span class="font-black text-xl ml-4 mt-1">WPet</span>
+
 </div>
 
 <div class="flex gap-4 text-sm font-semibold">
@@ -36,14 +43,11 @@ body { font-family: system-ui, sans-serif; }
 </nav>
 
 <!-- HOME -->
-<section id="home" class="pt-24 hero-bg text-white text-center pb-24 relative">
-<div class="relative">
-<img src="logo.png" class="h-32 mx-auto mb-4 -mt-10 drop-shadow-xl">
+<section id="home" class="pt-24 hero-bg text-white text-center pb-24">
 <h1 class="text-4xl font-bold">Soluções Técnicas Hospitalares</h1>
 <p class="mt-4 max-w-xl mx-auto text-lg opacity-90">
 Roupas pós-cirúrgicas e ortopédicas desenvolvidas para clínicas e hospitais veterinários.
 </p>
-</div>
 </section>
 
 <!-- PRODUTOS -->
@@ -87,7 +91,7 @@ Ver Recomendação
 
 <script>
 
-const opcoes = [
+const produtos = [
 "Azul Céu",
 "Verde Jade",
 "Verde Oceânico",
@@ -98,22 +102,22 @@ const opcoes = [
 "Estampa Marine Care"
 ];
 
-const descricaoPadrao = `O tecido possui em sua composição 82,5% Poliéster (PES) e 17,5% Poliuretano (PUE). 
-É um material leve e resistente, desenvolvido para oferecer segurança e conforto em ambientes clínicos. 
-Sua elasticidade garante um ajuste perfeito ao corpo, sem causar desconforto. 
-O toque suave proporciona bem-estar prolongado, tornando o uso mais agradável para o paciente. 
-Apresenta alta durabilidade clínica mesmo após diversas lavagens. 
-Fácil higienização e respirabilidade adequada para recuperação segura.`;
+const descricao = `O tecido possui em sua composição 82,5% Poliéster (PES) e 17,5% Poliuretano (PUE).
+Material leve, resistente e desenvolvido para segurança clínica.
+Elasticidade para ajuste perfeito sem desconforto.
+Toque suave e respirabilidade adequada.
+Alta durabilidade mesmo após diversas lavagens.
+Fácil higienização para clínicas e tutores.`;
 
-function criarCards(tipo, containerId){
+function criarProdutos(tipo, containerId){
 const container = document.getElementById(containerId);
-opcoes.forEach(nome=>{
+produtos.forEach(nome=>{
 const card = document.createElement("div");
 card.className="bg-white rounded-xl shadow p-4 product-card";
 card.innerHTML=`
 <h3 class="font-bold text-lg mb-2">${tipo} - ${nome}</h3>
-<p class="text-sm mb-3">${descricaoPadrao}</p>
-<button onclick="showSection('assistente'); selecionarAssistente('${tipo}','${nome}')" 
+<p class="text-sm mb-3">${descricao}</p>
+<button onclick="showSection('assistente'); selecionar('${tipo}','${nome}')" 
 class="bg-teal-700 text-white px-4 py-2 rounded w-full">
 Selecionar no Assistente
 </button>
@@ -122,8 +126,8 @@ container.appendChild(card);
 });
 }
 
-criarCards("Pós-Cirúrgica","pos-container");
-criarCards("Ortopédica","orto-container");
+criarProdutos("Pós-Cirúrgica","pos-container");
+criarProdutos("Ortopédica","orto-container");
 
 function showSection(id){
 document.querySelectorAll("section").forEach(sec=>sec.classList.add("hidden-sec"));
@@ -133,14 +137,14 @@ window.scrollTo(0,0);
 
 const modeloSelect = document.getElementById("modelo");
 
-opcoes.forEach(op=>{
+produtos.forEach(op=>{
 const option = document.createElement("option");
 option.value = op;
 option.textContent = op;
 modeloSelect.appendChild(option);
 });
 
-function selecionarAssistente(cat,mod){
+function selecionar(cat,mod){
 document.getElementById("categoria").value = cat;
 document.getElementById("modelo").value = mod;
 }
@@ -156,7 +160,6 @@ return;
 }
 
 let tamanho="";
-
 if(peso<=5) tamanho="PP";
 else if(peso<=10) tamanho="P";
 else if(peso<=20) tamanho="M";
@@ -167,8 +170,8 @@ document.getElementById("resultado").innerHTML=`
 Categoria: ${cat}<br>
 Modelo: ${mod}<br>
 Peso informado: ${peso}kg<br><br>
-<strong>Tamanho Recomendado: ${tamanho}</strong><br><br>
-Produto pronto para inclusão em pedido hospitalar.
+<strong>Tamanho Recomendado: ${tamanho}</strong><br>
+Produto pronto para inclusão no pedido hospitalar.
 `;
 }
 
