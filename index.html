@@ -24,224 +24,156 @@ body { font-family: system-ui, sans-serif; }
 <!-- NAV -->
 <nav class="fixed top-0 left-0 right-0 bg-white shadow z-50 h-16 flex justify-between items-center px-6">
 <div class="flex items-center gap-3 cursor-pointer" onclick="showSection('home')">
-<img src="logo.png" class="h-8 w-auto" onerror="this.style.display='none'">
+<img src="logo.png" class="h-10 w-auto">
 <span class="font-black text-xl">WPet</span>
 </div>
 
 <div class="flex gap-4 text-sm font-semibold">
-<button onclick="showSection('home')" id="btn-home" class="nav-btn">Home</button>
-<button onclick="showSection('clinicas')" id="btn-clinicas" class="nav-btn">Sou Clínica</button>
-<button onclick="showSection('produtos')" id="btn-produtos" class="nav-btn">Produtos</button>
-<button onclick="showSection('carrinho')" id="btn-carrinho" class="nav-btn">
-Pedido (<span id="cart-count">0</span>)
-</button>
+<button onclick="showSection('home')" class="nav-btn">Home</button>
+<button onclick="showSection('produtos')" class="nav-btn">Produtos</button>
+<button onclick="showSection('assistente')" class="nav-btn">Assistente</button>
 </div>
 </nav>
 
-<div class="pt-20">
-
 <!-- HOME -->
-<section id="sec-home" class="hero-bg text-white px-6 py-20 text-center">
-<h1 class="text-4xl md:text-6xl font-black mb-6">
-Tecnologia Pós-Cirúrgica Veterinária
-</h1>
-<p class="max-w-2xl mx-auto text-lg opacity-90 mb-10">
-Substituímos o colar elizabetano com soluções técnicas que promovem cicatrização adequada e conforto ao animal.
+<section id="home" class="pt-24 hero-bg text-white text-center pb-24 relative">
+<div class="relative">
+<img src="logo.png" class="h-32 mx-auto mb-4 -mt-10 drop-shadow-xl">
+<h1 class="text-4xl font-bold">Soluções Técnicas Hospitalares</h1>
+<p class="mt-4 max-w-xl mx-auto text-lg opacity-90">
+Roupas pós-cirúrgicas e ortopédicas desenvolvidas para clínicas e hospitais veterinários.
 </p>
-
-<div class="flex justify-center gap-4 flex-wrap">
-<button onclick="showSection('produtos')" class="bg-white text-teal-900 px-6 py-4 rounded-xl font-bold">
-Ver Produtos
-</button>
-<button onclick="showSection('clinicas')" class="border border-white px-6 py-4 rounded-xl font-bold">
-Sou Clínica Veterinária
-</button>
 </div>
-</section>
-
-<!-- CLÍNICAS -->
-<section id="sec-clinicas" class="hidden-sec max-w-4xl mx-auto py-20 px-6">
-<h2 class="text-3xl font-black mb-6">Programa Parceiro WPet</h2>
-<p class="mb-6 text-slate-600">
-Condições especiais para clínicas e hospitais veterinários:
-</p>
-
-<ul class="list-disc pl-6 mb-8 text-slate-600 space-y-2">
-<li>Compra em volume</li>
-<li>Tabela diferenciada para CNPJ</li>
-<li>Suporte técnico especializado</li>
-</ul>
-
-<input id="cnpj" type="text" placeholder="Digite seu CNPJ"
-class="border w-full p-3 rounded mb-4">
-
-<button onclick="contatoClinica()"
-class="w-full bg-teal-700 text-white py-4 rounded font-bold">
-Solicitar Contato Comercial
-</button>
 </section>
 
 <!-- PRODUTOS -->
-<section id="sec-produtos" class="hidden-sec max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-3 gap-8">
+<section id="produtos" class="hidden-sec pt-24 px-6 pb-20">
+
+<h2 class="text-3xl font-bold text-center mb-10">Linha Pós-Cirúrgica</h2>
+<div id="pos-container" class="grid md:grid-cols-4 gap-6 mb-20"></div>
+
+<h2 class="text-3xl font-bold text-center mb-10">Linha Ortopédica</h2>
+<div id="orto-container" class="grid md:grid-cols-4 gap-6"></div>
 
 </section>
-
-<!-- CARRINHO -->
-<section id="sec-carrinho" class="hidden-sec max-w-4xl mx-auto py-20 px-6">
-<h2 class="text-3xl font-black mb-6">Seu Pedido</h2>
-<div id="cart-items"></div>
-
-<button onclick="sendWhats()"
-class="mt-8 w-full bg-green-600 text-white py-4 rounded font-bold">
-Finalizar no WhatsApp
-</button>
-</section>
-
-</div>
 
 <!-- ASSISTENTE -->
-<div id="assist-modal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4">
-<div class="bg-white w-full max-w-md rounded-2xl shadow-xl p-6">
-<h3 class="font-bold mb-4">Assistente WPet</h3>
-<div id="chat-box" class="text-sm mb-4 h-40 overflow-y-auto border p-3 rounded bg-slate-50"></div>
-<div id="chat-actions"></div>
-<button onclick="closeAssist()" class="mt-4 text-red-500 text-sm">Fechar</button>
+<section id="assistente" class="hidden-sec pt-24 px-6 pb-20 max-w-xl mx-auto">
+
+<h2 class="text-3xl font-bold text-center mb-8">Assistente Inteligente</h2>
+
+<div class="bg-white p-6 rounded-xl shadow space-y-4">
+
+<select id="categoria" class="w-full border p-3 rounded">
+<option value="">Selecione a Categoria</option>
+<option value="Pós-Cirúrgica">Pós-Cirúrgica</option>
+<option value="Ortopédica">Ortopédica</option>
+</select>
+
+<select id="modelo" class="w-full border p-3 rounded">
+<option value="">Selecione Cor ou Estampa</option>
+</select>
+
+<input type="number" id="peso" placeholder="Peso do Pet (kg)" class="w-full border p-3 rounded">
+
+<button onclick="calcular()" class="w-full bg-teal-700 text-white py-3 rounded font-bold">
+Ver Recomendação
+</button>
+
+<div id="resultado" class="bg-slate-100 p-4 rounded text-sm"></div>
+
 </div>
-</div>
+</section>
 
 <script>
-const WA = "5524992618871";
-let cart = [];
-let current = {};
 
-const products = [
-{
-name:"Rosa Candy",
-desc:"Delicada e charmosa, transmite suavidade e ternura, perfeita para recuperação confortável.",
-img:"https://images.unsplash.com/photo-1601758228041-f3b2795255f1"
-},
-{
-name:"Azul Céu",
-desc:"Sereno e equilibrado, ideal para pós-operatório com segurança clínica.",
-img:"https://images.unsplash.com/photo-1583511655826-05700442b31b"
-},
-{
-name:"Verde Oceânico",
-desc:"Vibrante e moderno, excelente para proteção abdominal.",
-img:"https://images.unsplash.com/photo-1558788353-f76d92427f16"
-},
-{
-name:"Verde Jade",
-desc:"Sofisticado e técnico, transmite proteção e estabilidade.",
-img:"https://images.unsplash.com/photo-1598137262978-4c3c3d14c60d"
-},
-{
-name:"Love",
-desc:"Estampa romântica que combina cuidado e carinho no pós-cirúrgico.",
-img:"https://images.unsplash.com/photo-1517849845537-4d257902454a"
-},
-{
-name:"Zoo Fun",
-desc:"Estampa divertida e acolhedora para recuperação leve e confortável.",
-img:"https://images.unsplash.com/photo-1537151625747-768eb6cf92b2"
-}
+const opcoes = [
+"Azul Céu",
+"Verde Jade",
+"Verde Oceânico",
+"Rosa Candy",
+"Estampa Love",
+"Estampa Zoo Fun",
+"Estampa Yellow Happy",
+"Estampa Marine Care"
 ];
 
-function renderProducts(){
-let container=document.getElementById("sec-produtos");
-container.innerHTML="";
-products.forEach((p,i)=>{
-container.innerHTML+=`
-<div class="bg-white p-6 rounded-xl shadow product-card">
-<img src="${p.img}" loading="lazy" class="rounded mb-4 h-56 w-full object-cover">
-<h3 class="font-bold mb-2">${p.name}</h3>
-<p class="text-sm text-slate-600 mb-4">${p.desc}</p>
-<button onclick="openAssist('${p.name}')"
-class="bg-teal-700 text-white px-4 py-2 rounded">
-Selecionar
+const descricaoPadrao = `O tecido possui em sua composição 82,5% Poliéster (PES) e 17,5% Poliuretano (PUE). 
+É um material leve e resistente, desenvolvido para oferecer segurança e conforto em ambientes clínicos. 
+Sua elasticidade garante um ajuste perfeito ao corpo, sem causar desconforto. 
+O toque suave proporciona bem-estar prolongado, tornando o uso mais agradável para o paciente. 
+Apresenta alta durabilidade clínica mesmo após diversas lavagens. 
+Fácil higienização e respirabilidade adequada para recuperação segura.`;
+
+function criarCards(tipo, containerId){
+const container = document.getElementById(containerId);
+opcoes.forEach(nome=>{
+const card = document.createElement("div");
+card.className="bg-white rounded-xl shadow p-4 product-card";
+card.innerHTML=`
+<h3 class="font-bold text-lg mb-2">${tipo} - ${nome}</h3>
+<p class="text-sm mb-3">${descricaoPadrao}</p>
+<button onclick="showSection('assistente'); selecionarAssistente('${tipo}','${nome}')" 
+class="bg-teal-700 text-white px-4 py-2 rounded w-full">
+Selecionar no Assistente
 </button>
-</div>`;
+`;
+container.appendChild(card);
 });
 }
 
+criarCards("Pós-Cirúrgica","pos-container");
+criarCards("Ortopédica","orto-container");
+
 function showSection(id){
-document.querySelectorAll('[id^="sec-"]').forEach(s=>s.style.display='none');
-document.getElementById('sec-'+id).style.display='block';
-document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('nav-active'));
-document.getElementById('btn-'+id)?.classList.add('nav-active');
+document.querySelectorAll("section").forEach(sec=>sec.classList.add("hidden-sec"));
+document.getElementById(id).classList.remove("hidden-sec");
 window.scrollTo(0,0);
 }
 
-function openAssist(name){
-current={name};
-document.getElementById("assist-modal").classList.remove("hidden");
-document.getElementById("chat-box").innerHTML="Qual o sexo do pet?";
-document.getElementById("chat-actions").innerHTML=`
-<button onclick="step('sexo','Macho')" class="bg-slate-200 px-3 py-1 rounded mr-2">Macho</button>
-<button onclick="step('sexo','Fêmea')" class="bg-slate-200 px-3 py-1 rounded">Fêmea</button>`;
-}
+const modeloSelect = document.getElementById("modelo");
 
-function step(field,value){
-current[field]=value;
-if(field==="sexo"){
-document.getElementById("chat-box").innerHTML+="<br>Peso (kg)?";
-document.getElementById("chat-actions").innerHTML=`
-<input type="number" id="peso" class="border p-1 rounded mr-2">
-<button onclick="step('peso',document.getElementById('peso').value)"
-class="bg-teal-700 text-white px-3 py-1 rounded">OK</button>`;
-}
-else if(field==="peso"){
-current.tamanho=value<=4?"01":value<=8?"02":"03";
-document.getElementById("chat-box").innerHTML+="<br>Tamanho sugerido: "+current.tamanho;
-document.getElementById("chat-actions").innerHTML=`
-<button onclick="addToCart()" class="bg-green-600 text-white px-3 py-1 rounded">Adicionar ao Pedido</button>`;
-}
-}
-
-function addToCart(){
-cart.push(current);
-document.getElementById("cart-count").innerText=cart.length;
-closeAssist();
-showSection("carrinho");
-renderCart();
-}
-
-function renderCart(){
-let html="";
-cart.forEach((item,i)=>{
-html+=`
-<div class="bg-white p-4 shadow mb-3 flex justify-between">
-${item.name} (Tam ${item.tamanho})
-<button onclick="removeItem(${i})" class="text-red-500">Remover</button>
-</div>`;
+opcoes.forEach(op=>{
+const option = document.createElement("option");
+option.value = op;
+option.textContent = op;
+modeloSelect.appendChild(option);
 });
-document.getElementById("cart-items").innerHTML=html;
+
+function selecionarAssistente(cat,mod){
+document.getElementById("categoria").value = cat;
+document.getElementById("modelo").value = mod;
 }
 
-function removeItem(i){
-cart.splice(i,1);
-document.getElementById("cart-count").innerText=cart.length;
-renderCart();
+function calcular(){
+const cat = document.getElementById("categoria").value;
+const mod = document.getElementById("modelo").value;
+const peso = parseFloat(document.getElementById("peso").value);
+
+if(!cat || !mod || !peso){
+document.getElementById("resultado").innerHTML="Preencha todos os campos para continuar.";
+return;
 }
 
-function sendWhats(){
-let text="Olá WPet! Pedido:\n\n"+
-cart.map(i=>"• "+i.name+" Tam "+i.tamanho).join("\n");
-window.open(`https://wa.me/${WA}?text=${encodeURIComponent(text)}`);
+let tamanho="";
+
+if(peso<=5) tamanho="PP";
+else if(peso<=10) tamanho="P";
+else if(peso<=20) tamanho="M";
+else tamanho="G";
+
+document.getElementById("resultado").innerHTML=`
+<strong>Resumo da Seleção:</strong><br>
+Categoria: ${cat}<br>
+Modelo: ${mod}<br>
+Peso informado: ${peso}kg<br><br>
+<strong>Tamanho Recomendado: ${tamanho}</strong><br><br>
+Produto pronto para inclusão em pedido hospitalar.
+`;
 }
 
-function contatoClinica(){
-let cnpj=document.getElementById("cnpj").value;
-window.open(`https://wa.me/${WA}?text=${encodeURIComponent("Olá, sou clínica veterinária. CNPJ: "+cnpj)}`);
-}
-
-function closeAssist(){
-document.getElementById("assist-modal").classList.add("hidden");
-}
-
-renderProducts();
 showSection("home");
-lucide.createIcons();
+
 </script>
 
 </body>
