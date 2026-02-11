@@ -16,6 +16,15 @@ body { font-family: system-ui, sans-serif; }
 .nav-active { color:#00695C !important; font-weight:700; }
 .hero-bg { background: linear-gradient(135deg,#004D40,#00796B); }
 .product-card:hover { transform: translateY(-4px); transition: 0.3s; }
+
+.logo-top {
+height:56px;
+margin-top:18px; /* sobreposição suave */
+}
+
+.subsec { display:none; }
+
+.slider { position:relative; overflow:hidden; }
 .slide { display:none; }
 .slide.active { display:block; }
 </style>
@@ -26,8 +35,8 @@ body { font-family: system-ui, sans-serif; }
 <!-- NAV -->
 <nav class="fixed top-0 left-0 right-0 bg-white shadow z-50 h-16 flex justify-between items-center px-6">
 <div class="flex items-center gap-3 cursor-pointer" onclick="showSection('home')">
-<img src="logo.png" class="h-10 w-auto" onerror="this.style.display='none'">
-<span class="font-black text-xl ml-1">WPet</span>
+<img src="logo.png" class="logo-top" onerror="this.style.display='none'">
+<span class="font-black text-xl ml-3">WPet</span>
 </div>
 
 <div class="flex gap-4 text-sm font-semibold">
@@ -39,39 +48,34 @@ body { font-family: system-ui, sans-serif; }
 </nav>
 
 <!-- HOME -->
-<section id="home" class="pt-24 hero-bg text-white text-center pb-24 relative">
-
-<img src="logo.png" class="h-32 mx-auto -mt-10 mb-4 drop-shadow-xl">
-
+<section id="home" class="pt-24 hero-bg text-white text-center pb-24">
 <h1 class="text-4xl font-bold">Soluções Técnicas Hospitalares</h1>
 <p class="mt-4 max-w-xl mx-auto text-lg opacity-90">
 Roupas pós-cirúrgicas e ortopédicas desenvolvidas para clínicas e hospitais veterinários.
 </p>
 
-<div class="mt-8 flex justify-center gap-4 flex-wrap">
-<button onclick="abrirLinha('Pós-Cirúrgica')" class="bg-white text-teal-700 px-6 py-3 rounded font-bold">
+<div class="mt-10 flex justify-center gap-6 flex-wrap">
+<button onclick="abrirLinha('pos')" class="bg-white text-teal-700 px-6 py-3 rounded font-bold">
 Linha Pós-Cirúrgica
 </button>
-<button onclick="abrirLinha('Ortopédica')" class="bg-white text-teal-700 px-6 py-3 rounded font-bold">
+<button onclick="abrirLinha('orto')" class="bg-white text-teal-700 px-6 py-3 rounded font-bold">
 Linha Ortopédica
 </button>
 </div>
-
 </section>
 
 <!-- PRODUTOS -->
 <section id="produtos" class="hidden-sec pt-24 px-6 pb-20">
 
-<div class="text-center mb-8">
-<button onclick="filtrarLinha('Pós-Cirúrgica')" class="bg-teal-700 text-white px-6 py-2 rounded mr-2">
-Pós-Cirúrgica
-</button>
-<button onclick="filtrarLinha('Ortopédica')" class="bg-teal-700 text-white px-6 py-2 rounded">
-Ortopédica
-</button>
+<div id="linha-pos" class="subsec">
+<h2 class="text-3xl font-bold mb-8 text-center">Linha Pós-Cirúrgica</h2>
+<div id="pos-container"></div>
 </div>
 
-<div id="vitrine" class="max-w-3xl mx-auto bg-white rounded-xl shadow p-6 relative overflow-hidden"></div>
+<div id="linha-orto" class="subsec">
+<h2 class="text-3xl font-bold mb-8 text-center">Linha Ortopédica</h2>
+<div id="orto-container"></div>
+</div>
 
 </section>
 
@@ -98,19 +102,13 @@ Calcular Tamanho Ideal
 
 <script>
 
-const produtos = [
-{nome:"Azul Céu",desc:"A serenidade que transmite confiança clínica. Ideal para tutores que buscam segurança no pós-operatório."},
-{nome:"Verde Jade",desc:"A sofisticação que protege. Uma estampa técnica que reforça estabilidade e cuidado profissional."},
-{nome:"Verde Oceânico",desc:"Energia vibrante para recuperação segura. Moderno e marcante, transmite vitalidade e proteção."},
-{nome:"Rosa Candy",desc:"Doçura que conforta. Um toque delicado que acalma e traz ternura ao processo de recuperação."},
-{nome:"Estampa Love",desc:"Carinho em cada detalhe. A estampa romântica que conecta cuidado clínico com afeto."},
-{nome:"Estampa Zoo Fun",desc:"Alegria que acolhe. Uma opção divertida que transforma o pós-cirúrgico em uma experiência mais leve."},
-{nome:"Estampa Yellow Happy",desc:"O otimismo que inspira. Colorida e juvenil, transmite energia positiva e bem-estar."},
-{nome:"Estampa Marine Care",desc:"Proteção com frescor marinho. Uma estampa temática que une confiança clínica ao toque acolhedor do oceano."}
+const cores = [
+"Azul Céu","Verde Jade","Verde Oceânico","Rosa Candy"
 ];
 
-let linhaAtual = "Pós-Cirúrgica";
-let slideIndex = 0;
+const estampas = [
+"Estampa Love","Estampa Zoo Fun","Estampa Yellow Happy","Estampa Marine Care"
+];
 
 function showSection(id){
 document.querySelectorAll("section").forEach(sec=>sec.classList.add("hidden-sec"));
@@ -118,43 +116,51 @@ document.getElementById(id).classList.remove("hidden-sec");
 window.scrollTo(0,0);
 }
 
-function abrirLinha(linha){
-linhaAtual = linha;
-showSection('produtos');
-montarSlides();
+function abrirLinha(tipo){
+showSection("produtos");
+document.querySelectorAll(".subsec").forEach(s=>s.style.display="none");
+document.getElementById("linha-"+tipo).style.display="block";
 }
 
-function filtrarLinha(linha){
-linhaAtual = linha;
-montarSlides();
+function criarBloco(containerId, linhaNome){
+
+const container = document.getElementById(containerId);
+
+container.innerHTML = `
+
+<h3 class="text-xl font-bold mt-10 mb-4">Cores Lisas</h3>
+<div class="grid md:grid-cols-4 gap-6">
+${cores.map(c=>cardHTML(linhaNome,c)).join("")}
+</div>
+
+<h3 class="text-xl font-bold mt-12 mb-4">Estampas</h3>
+<div class="grid md:grid-cols-4 gap-6">
+${estampas.map(e=>cardHTML(linhaNome,e)).join("")}
+</div>
+
+<div class="slider mt-12 bg-white rounded-xl shadow p-6">
+${[...cores,...estampas].map((p,i)=>`
+<div class="slide ${i===0?'active':''}">
+<img src="https://via.placeholder.com/600x300?text=${p.replace(/ /g,'+')}" class="w-full rounded mb-4">
+<h4 class="font-bold">${linhaNome} - ${p}</h4>
+</div>
+`).join("")}
+</div>
+`;
 }
 
-function montarSlides(){
-const vitrine = document.getElementById("vitrine");
-vitrine.innerHTML="";
-produtos.forEach((p,i)=>{
-const slide = document.createElement("div");
-slide.className="slide"+(i===0?" active":"");
-slide.innerHTML=`
-<h3 class="text-xl font-bold mb-2">${linhaAtual} - ${p.nome}</h3>
-<p class="mb-4">${p.desc}</p>
-<button onclick="abrirAssistente('${linhaAtual}','${p.nome}')" 
+function cardHTML(linha, nome){
+return `
+<div class="bg-white rounded-xl shadow p-4 product-card">
+<img src="https://via.placeholder.com/300x200?text=${nome.replace(/ /g,'+')}" class="w-full rounded mb-3">
+<h4 class="font-bold mb-2">${linha} - ${nome}</h4>
+<button onclick="abrirAssistente('${linha}','${nome}')" 
 class="bg-teal-700 text-white px-4 py-2 rounded w-full">
 Selecionar no Assistente
 </button>
+</div>
 `;
-vitrine.appendChild(slide);
-});
-slideIndex=0;
 }
-
-setInterval(()=>{
-const slides=document.querySelectorAll(".slide");
-if(slides.length===0) return;
-slides[slideIndex].classList.remove("active");
-slideIndex=(slideIndex+1)%slides.length;
-slides[slideIndex].classList.add("active");
-},4000);
 
 function abrirAssistente(cat,modelo){
 showSection("assistente");
@@ -175,14 +181,25 @@ else if(peso<=20) tamanho="M";
 else tamanho="G";
 
 document.getElementById("resultado").innerHTML=`
-<strong>Resumo do Pedido:</strong><br>
+<strong>Resumo da Seleção:</strong><br>
 ${document.getElementById("assist-cat").value}<br>
 ${document.getElementById("assist-modelo").value}<br>
 Peso informado: ${peso}kg<br><br>
-<strong>Tamanho Ideal: ${tamanho}</strong><br><br>
-Produto pronto para inclusão no pedido hospitalar.
+<strong>Tamanho Ideal: ${tamanho}</strong>
 `;
 }
+
+setInterval(()=>{
+document.querySelectorAll(".slider").forEach(slider=>{
+const slides=slider.querySelectorAll(".slide");
+let active=[...slides].findIndex(s=>s.classList.contains("active"));
+slides[active].classList.remove("active");
+slides[(active+1)%slides.length].classList.add("active");
+});
+},4000);
+
+criarBloco("pos-container","Pós-Cirúrgica");
+criarBloco("orto-container","Ortopédica");
 
 showSection("home");
 
