@@ -13,11 +13,8 @@
         .nav-active { color:#00695C !important; font-weight:700; }
         .hero-bg { background: linear-gradient(135deg,#004D40,#00796B); }
         .product-card:hover { transform: translateY(-4px); transition: 0.3s; }
-        .logo-top { height:56px; margin-top:18px; }
+        .logo-top { height: 56px; margin-top: 18px; }
         .subsec { display:none; }
-        .slider { position:relative; overflow:hidden; }
-        .slide { display:none; }
-        .slide.active { display:block; }
     </style>
 </head>
 
@@ -30,18 +27,10 @@
         <span class="font-black text-xl ml-3">WPet</span>
     </div>
     <div class="flex gap-4 text-sm font-semibold">
-        <button onclick="showSection('home')" id="btn-home" class="nav-btn">
-            <i class="icon-home"></i> Home
-        </button>
-        <button onclick="showSection('linhaPos')" class="nav-btn">
-            <i class="icon-post-op"></i> Linha Pós-Cirúrgica
-        </button>
-        <button onclick="showSection('linhaOrto')" class="nav-btn">
-            <i class="icon-ortho"></i> Linha Ortopédica
-        </button>
-        <button onclick="showSection('assistente')" class="nav-btn">
-            <i class="icon-assistant"></i> Assistente
-        </button>
+        <button onclick="showSection('home')" class="nav-btn">Home</button>
+        <button onclick="showSection('linhaPos')" class="nav-btn">Linha Pós-Cirúrgica</button>
+        <button onclick="showSection('linhaOrto')" class="nav-btn">Linha Ortopédica</button>
+        <button onclick="showSection('assistente')" class="nav-btn">Assistente</button>
     </div>
 </nav>
 
@@ -49,22 +38,17 @@
 <section id="home" class="pt-24 hero-bg text-white text-center pb-24">
     <h1 class="text-4xl font-bold">🐾 Pós-operatório com mais eficiência e confiança</h1>
     <p class="mt-4 max-w-xl mx-auto text-lg opacity-90">
-        Roupas pós-cirúrgicas e ortopédicas para uso profissional
+        Roupas pós-cirúrgicas e ortopédicas para uso profissional.
 
         Reduza complicações, aumente a satisfação dos tutores e ofereça o melhor cuidado aos seus pacientes.
     </p>
-    <button onclick="abrirLinha('pos')" class="bg-white text-teal-700 px-6 py-3 rounded font-bold">
-        👉 Solicite condições exclusivas para sua clínica
-    </button>
-    
+    <button onclick="abrirLinha('pos')" class="bg-white text-teal-700 px-6 py-3 rounded font-bold">👉 Solicite condições exclusivas para sua clínica</button>
+
     <div class="mt-10">
         <h2 class="text-3xl font-bold mt-10">🐾 Soluções Profissionais em Roupas Pós-Cirúrgicas e Ortopédicas</h2>
-        <p class="text-lg opacity-90">Desenvolvidas para clínicas e hospitais veterinários
+        <p class="text-lg opacity-90">Desenvolvidas para clínicas e hospitais veterinários.
 
         Proteção, recuperação e tranquilidade para seus pacientes — confiança para sua equipe.</p>
-
-        <button onclick="showSection('linhaPos')" class="bg-white text-teal-700 px-6 py-3 rounded font-bold">Linha Pós-Cirúrgica</button>
-        <button onclick="showSection('linhaOrto')" class="bg-white text-teal-700 px-6 py-3 rounded font-bold">Linha Ortopédica</button>
     </div>
 </section>
 
@@ -74,7 +58,6 @@
     <p class="text-center mb-4">Conforto, proteção e confiança clínica para cães e gatos.</p>
     <p class="text-center mb-8">Recuperação segura e moderna para seus pacientes.</p>
 
-    <!-- Filtros e Navegação -->
     <div class="flex justify-between mb-4">
         <div>
             <strong>Categorias:</strong>
@@ -97,31 +80,15 @@
         </div>
     </div>
 
-    <!-- Vitrine de Produtos -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="product-card">
+        <div class="bg-white rounded-xl shadow p-4 product-card">
             <h4 class="font-bold">Azul Turquesa</h4>
             <p>A serenidade que transmite confiança clínica.</p>
             <button class="bg-teal-700 text-white px-4 py-2 rounded">[+]</button>
         </div>
-        <div class="product-card">
-            <h4 class="font-bold">Verde Jade</h4>
-            <p>A sofisticação que protege.</p>
-            <button class="bg-teal-700 text-white px-4 py-2 rounded">[+]</button>
-        </div>
-        <div class="product-card">
-            <h4 class="font-bold">Verde Oceânico</h4>
-            <p>Energia vibrante para recuperação segura.</p>
-            <button class="bg-teal-700 text-white px-4 py-2 rounded">[+]</button>
-        </div>
-        <div class="product-card">
-            <h4 class="font-bold">Rosa Candy</h4>
-            <p>Doçura que conforta.</p>
-            <button class="bg-teal-700 text-white px-4 py-2 rounded">[+]</button>
-        </div>
+        <!-- Adicione mais produtos aqui -->
     </div>
 
-    <!-- Benefícios Institucionais -->
     <h3 class="text-xl font-bold mt-10">Por que escolher nossa Linha Pós-Cirúrgica?</h3>
     <ul class="list-disc list-inside mb-4">
         <li>Redução de complicações pós-operatórias</li>
@@ -140,7 +107,6 @@
     <p class="text-center mb-4">Conforto, proteção e confiança clínica para cães e gatos.</p>
     <p class="text-center mb-8">Recuperação segura e moderna para seus pacientes.</p>
 
-    <!-- Filtros e Navegação -->
     <div class="flex justify-between mb-4">
         <div>
             <strong>Categorias:</strong>
@@ -163,31 +129,15 @@
         </div>
     </div>
 
-    <!-- Vitrine de Produtos -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="product-card">
+        <div class="bg-white rounded-xl shadow p-4 product-card">
             <h4 class="font-bold">Azul Turquesa</h4>
             <p>A serenidade que transmite confiança clínica.</p>
             <button class="bg-teal-700 text-white px-4 py-2 rounded">[+]</button>
         </div>
-        <div class="product-card">
-            <h4 class="font-bold">Verde Jade</h4>
-            <p>A sofisticação que protege.</p>
-            <button class="bg-teal-700 text-white px-4 py-2 rounded">[+]</button>
-        </div>
-        <div class="product-card">
-            <h4 class="font-bold">Verde Oceânico</h4>
-            <p>Energia vibrante para recuperação segura.</p>
-            <button class="bg-teal-700 text-white px-4 py-2 rounded">[+]</button>
-        </div>
-        <div class="product-card">
-            <h4 class="font-bold">Rosa Candy</h4>
-            <p>Doçura que conforta.</p>
-            <button class="bg-teal-700 text-white px-4 py-2 rounded">[+]</button>
-        </div>
+        <!-- Adicione mais produtos aqui -->
     </div>
 
-    <!-- Benefícios Institucionais -->
     <h3 class="text-xl font-bold mt-10">Por que escolher nossa Linha Ortopédica?</h3>
     <ul class="list-disc list-inside mb-4">
         <li>Redução de complicações pós-operatórias</li>
@@ -214,20 +164,14 @@
 
 <script>
     function showSection(id){
-        document.querySelectorAll("section").forEach(sec=>sec.classList.add("hidden-sec"));
+        document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden-sec"));
         document.getElementById(id).classList.remove("hidden-sec");
-        window.scrollTo(0,0);
-    }
-
-    function abrirLinha(tipo){
-        showSection("produtos");
-        document.querySelectorAll(".subsec").forEach(s=>s.style.display="none");
-        document.getElementById("linha-"+tipo).style.display="block";
+        window.scrollTo(0, 0);
     }
 
     function calcular(){
         const peso = parseFloat(document.getElementById("peso").value);
-        if(!peso){
+        if (!peso){
             document.getElementById("resultado").innerHTML = "Informe o peso para continuar.";
             return;
         }
