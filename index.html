@@ -1,180 +1,904 @@
+<!-- PetGuard Home - Loja Virtual -->
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WPet Hospitalar | Soluções Pós-Cirúrgicas Veterinárias</title>
 
-<meta name="description" content="WPet Hospitalar - Roupas técnicas pós-cirúrgicas e ortopédicas para clínicas e hospitais veterinários.">
-
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetGuard | Conforto e Proteção no Pós-Operatório</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#009485",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2321",
+                        "neutral-light": "#e6eeed",
+                        "text-main": "#101818",
+                        "text-subtle": "#5e8d88"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
 <style>
-body { font-family: system-ui, sans-serif; }
-.hidden-sec { display:none; }
-.nav-active { color:#00695C !important; font-weight:700; }
-.hero-bg { background: linear-gradient(135deg,#004D40,#00796B); }
-.product-card:hover { transform: translateY(-4px); transition: 0.3s; }
-</style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
 </head>
-
-<body class="bg-slate-50 text-slate-800">
-
-<!-- NAV -->
-<nav class="fixed top-0 left-0 right-0 bg-white shadow z-50 h-16 flex justify-between items-center px-6">
-<div class="flex items-center gap-3 cursor-pointer" onclick="showSection('home')">
-<img src="logo.png" class="h-10 w-auto">
-<span class="font-black text-xl">WPet</span>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-light px-6 md:px-20 py-4">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">pets</span>
 </div>
-
-<div class="flex gap-4 text-sm font-semibold">
-<button onclick="showSection('home')" class="nav-btn">Home</button>
-<button onclick="showSection('produtos')" class="nav-btn">Produtos</button>
-<button onclick="showSection('assistente')" class="nav-btn">Assistente</button>
+<h2 class="text-xl font-extrabold tracking-tight">PetGuard</h2>
 </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#beneficios">Benefícios</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#produtos">Produtos</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#medidas">Como Medir</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#depoimentos">Depoimentos</a>
 </nav>
-
-<!-- HOME -->
-<section id="home" class="pt-24 hero-bg text-white text-center pb-24 relative">
-<div class="relative">
-<img src="logo.png" class="h-32 mx-auto mb-4 -mt-10 drop-shadow-xl">
-<h1 class="text-4xl font-bold">Soluções Técnicas Hospitalares</h1>
-<p class="mt-4 max-w-xl mx-auto text-lg opacity-90">
-Roupas pós-cirúrgicas e ortopédicas desenvolvidas para clínicas e hospitais veterinários.
-</p>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:opacity-90 transition-all shadow-md shadow-primary/20">
+                    Comprar Agora
+                </button>
+<button class="md:hidden text-text-main">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative px-6 py-12 md:py-24 max-w-[1200px] mx-auto">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8 order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-bold">
+<span class="material-symbols-outlined text-sm">verified</span>
+                        Recomendado por Veterinários
+                    </div>
+<h1 class="text-4xl md:text-6xl font-black leading-[1.1] tracking-tight text-text-main">
+                        Conforto e Proteção no <span class="text-primary">Pós-Operatório</span>
+</h1>
+<p class="text-lg text-text-subtle leading-relaxed max-w-[540px]">
+                        Substitua o colar elizabetano por uma solução anatômica, respirável e livre de estresse para a recuperação do seu melhor amigo.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/30 flex items-center justify-center gap-2">
+                            Comprar Agora
+                            <span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="border-2 border-primary/20 text-primary px-8 py-4 rounded-full text-lg font-bold hover:bg-primary/5 transition-colors">
+                            Ver Vídeo
+                        </button>
+</div>
+</div>
+<div class="relative order-1 lg:order-2">
+<div class="w-full aspect-[4/3] rounded-xl overflow-hidden shadow-2xl bg-neutral-light border-4 border-white">
+<img alt="Cachorro e gato usando roupas de recuperação confortáveis" class="w-full h-full object-cover" data-alt="Cachorro e gato felizes usando roupas de recuperação" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8HJDhh9_XcbpM3Gja3xE0qI014W5EdxNfh_lfNWfNVm37WpyB6fB-9_jOpmOpeHsD_LXQQZ-hFY9OMJRgKgWDWhb7imufOfKcAMnSQsUGQO4wluoLFd3OslQfO9KOt1rdYpRqO5wzWW75D7sF9Aa5dUQbUqkbi21gdYRX08NRs6FHI4ats78bKvz0jvf_ChzZZmpdALbkopGCtCwnFvtxJd5tZw6UCN27DePUZuqeOHB4D4DVsMj8wsGS_VyhK7v6KZAyqY-4saA"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-3">
+<div class="size-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<div>
+<p class="text-xs font-bold text-text-subtle">Recuperação</p>
+<p class="text-sm font-black text-text-main">3x Mais Rápida</p>
+</div>
+</div>
+</div>
 </div>
 </section>
-
-<!-- PRODUTOS -->
-<section id="produtos" class="hidden-sec pt-24 px-6 pb-20">
-
-<h2 class="text-3xl font-bold text-center mb-10">Linha Pós-Cirúrgica</h2>
-<div id="pos-container" class="grid md:grid-cols-4 gap-6 mb-20"></div>
-
-<h2 class="text-3xl font-bold text-center mb-10">Linha Ortopédica</h2>
-<div id="orto-container" class="grid md:grid-cols-4 gap-6"></div>
-
-</section>
-
-<!-- ASSISTENTE -->
-<section id="assistente" class="hidden-sec pt-24 px-6 pb-20 max-w-xl mx-auto">
-
-<h2 class="text-3xl font-bold text-center mb-8">Assistente Inteligente</h2>
-
-<div class="bg-white p-6 rounded-xl shadow space-y-4">
-
-<select id="categoria" class="w-full border p-3 rounded">
-<option value="">Selecione a Categoria</option>
-<option value="Pós-Cirúrgica">Pós-Cirúrgica</option>
-<option value="Ortopédica">Ortopédica</option>
-</select>
-
-<select id="modelo" class="w-full border p-3 rounded">
-<option value="">Selecione Cor ou Estampa</option>
-</select>
-
-<input type="number" id="peso" placeholder="Peso do Pet (kg)" class="w-full border p-3 rounded">
-
-<button onclick="calcular()" class="w-full bg-teal-700 text-white py-3 rounded font-bold">
-Ver Recomendação
-</button>
-
-<div id="resultado" class="bg-slate-100 p-4 rounded text-sm"></div>
-
+<!-- Trust Bar -->
+<section class="bg-white py-12 border-y border-neutral-light">
+<div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-background-light transition-colors">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">stethoscope</span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-subtle">Recomendado por</p>
+<p class="text-lg font-bold text-text-main">Veterinários</p>
+<p class="text-xs text-primary font-bold">+500 clínicas parceiras</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-background-light transition-colors">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">air</span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-subtle">Material</p>
+<p class="text-lg font-bold text-text-main">Respirável</p>
+<p class="text-xs text-primary font-bold">Tecnologia Antimicrobiana</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-background-light transition-colors">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">local_shipping</span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-subtle">Entrega Super</p>
+<p class="text-lg font-bold text-text-main">Rápida</p>
+<p class="text-xs text-primary font-bold">Postagem em até 24h</p>
+</div>
+</div>
 </div>
 </section>
-
-<script>
-
-const opcoes = [
-"Azul Céu",
-"Verde Jade",
-"Verde Oceânico",
-"Rosa Candy",
-"Estampa Love",
-"Estampa Zoo Fun",
-"Estampa Yellow Happy",
-"Estampa Marine Care"
-];
-
-const descricaoPadrao = `O tecido possui em sua composição 82,5% Poliéster (PES) e 17,5% Poliuretano (PUE). 
-É um material leve e resistente, desenvolvido para oferecer segurança e conforto em ambientes clínicos. 
-Sua elasticidade garante um ajuste perfeito ao corpo, sem causar desconforto. 
-O toque suave proporciona bem-estar prolongado, tornando o uso mais agradável para o paciente. 
-Apresenta alta durabilidade clínica mesmo após diversas lavagens. 
-Fácil higienização e respirabilidade adequada para recuperação segura.`;
-
-function criarCards(tipo, containerId){
-const container = document.getElementById(containerId);
-opcoes.forEach(nome=>{
-const card = document.createElement("div");
-card.className="bg-white rounded-xl shadow p-4 product-card";
-card.innerHTML=`
-<h3 class="font-bold text-lg mb-2">${tipo} - ${nome}</h3>
-<p class="text-sm mb-3">${descricaoPadrao}</p>
-<button onclick="showSection('assistente'); selecionarAssistente('${tipo}','${nome}')" 
-class="bg-teal-700 text-white px-4 py-2 rounded w-full">
-Selecionar no Assistente
+<!-- Problem/Solution Section -->
+<section class="py-24 px-6 max-w-[1200px] mx-auto" id="beneficios">
+<div class="text-center max-w-[700px] mx-auto mb-16">
+<h2 class="text-3xl md:text-5xl font-black mb-6">Diga adeus ao estresse do "Cone da Vergonha"</h2>
+<p class="text-text-subtle text-lg leading-relaxed">
+                    Nossas roupas garantem mobilidade total para seu pet comer, dormir e brincar livremente durante o período mais crítico.
+                </p>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="bg-white border border-neutral-light p-8 rounded-xl hover:border-primary/40 transition-all group">
+<div class="size-14 rounded-full bg-background-light flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">sentiment_very_satisfied</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Redução de Estresse</h3>
+<p class="text-text-subtle text-sm leading-relaxed">
+                        Diferente do colar elizabetano, o pet mantém a visão periférica e não bate nos móveis da casa.
+                    </p>
+</div>
+<div class="bg-white border border-neutral-light p-8 rounded-xl hover:border-primary/40 transition-all group">
+<div class="size-14 rounded-full bg-background-light flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">shield</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Proteção Total</h3>
+<p class="text-text-subtle text-sm leading-relaxed">
+                        Cobre completamente a incisão cirúrgica, impedindo lambeduras, contaminação e abertura de pontos.
+                    </p>
+</div>
+<div class="bg-white border border-neutral-light p-8 rounded-xl hover:border-primary/40 transition-all group">
+<div class="size-14 rounded-full bg-background-light flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">body_fat</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Design Anatômico</h3>
+<p class="text-text-subtle text-sm leading-relaxed">
+                        Tecido com elastano que se ajusta ao corpo do animal sem apertar ou limitar os movimentos naturais.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Product Showcase -->
+<section class="bg-white py-24 px-6 border-y border-neutral-light" id="produtos">
+<div class="max-w-[1200px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+<div class="max-w-[500px]">
+<h2 class="text-3xl md:text-5xl font-black mb-4">Escolha o modelo ideal</h2>
+<p class="text-text-subtle">Desenvolvidos com aberturas anatômicas específicas para machos e fêmeas.</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold">Cães</button>
+<button class="bg-background-light text-text-subtle px-4 py-2 rounded-full text-sm font-bold">Gatos</button>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Product 1 -->
+<div class="flex flex-col group">
+<div class="aspect-[4/5] bg-background-light rounded-xl overflow-hidden relative mb-4">
+<img alt="Roupa de recuperação modelo fêmea" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cachorro usando roupa de recuperação azul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp5a4_hgT5Ecn6NTIGobEQkXpf3hvLAz5_ytZCUyHDgYFwuep3J3NoQmu9ujfgW2yidl9uL0halNuBfUofEjYEmmeHlno9sNVpADl5EVxz2-x2VmU9eccR7uMuBBgDATC7VK25OdSLesWfKY3DkELXqO3BUHnr4j6Ff25iYHT4iyLrCFE6UUwZXYaPNiOEwL7M8cD9tsQ2qyjVff7Mq3C_DtbPS9-jkGoLj2Zx4lkkQrFYSzZ6dgmkwcwmv2IykHZwNkX7EEEf9JQ"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Destaque</div>
+</div>
+<h3 class="text-lg font-bold mb-1">Modelo Fêmea / Unissex</h3>
+<p class="text-text-subtle text-xs mb-4">Abertura traseira completa e ajuste abdominal.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="text-sm text-text-subtle line-through">R$ 119,00</span>
+<p class="text-2xl font-black text-primary">R$ 89,90</p>
+</div>
+<button class="size-12 bg-primary text-white rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-primary/40 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
 </button>
-`;
-container.appendChild(card);
-});
-}
+</div>
+</div>
+<!-- Product 2 -->
+<div class="flex flex-col group">
+<div class="aspect-[4/5] bg-background-light rounded-xl overflow-hidden relative mb-4">
+<img alt="Roupa de recuperação modelo macho" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cachorro usando roupa de proteção verde" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBku6Plq2S6Au04vskbTbC0ULvocxFAlxaAfclCcijyBhP0A8Q9y4WHID9Me5ZpYMPb2tQIwltxL94_cHM-Am6e2iGi6sGUlJ1ibvrTgV0dYCA4CLUylOpxTau_eNzbNaxWYLGh8n-jh92en2-R9C8Gq-aw8UmQeJknQLZSo7rsDWjO_vt41WIGaFieAnL3VddGtWDfWezFvAoqGZkULVr-RsZPYHvkdJOwataGnDbLC-K7lWIkCEJm9dniQ6olESQe6j2FIqjmZxk"/>
+</div>
+<h3 class="text-lg font-bold mb-1">Modelo Macho Especial</h3>
+<p class="text-text-subtle text-xs mb-4">Corte higiênico para micção sem retirar a roupa.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="text-sm text-text-subtle line-through">R$ 125,00</span>
+<p class="text-2xl font-black text-primary">R$ 94,90</p>
+</div>
+<button class="size-12 bg-primary text-white rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-primary/40 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="flex flex-col group">
+<div class="aspect-[4/5] bg-background-light rounded-xl overflow-hidden relative mb-4">
+<img alt="Roupa de recuperação para gatos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Gato fofo usando roupa de recuperação rosa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJj-vs0_NVw5dznfWRIwx7DVjNPEfbktD0GZU48J3A0ezwxhoirhgdLLCnIeeKVGTFjy42MDKcIY7njBmXoCD09SX1Wq4ZJ8AVH5cZGZnPJXxXhBZQMj3LJ-1fwnqvRHyvuxErP68D7CiK3bMtoYXYcvzNhQm352pNnsrk6lTvMJBLXtYP3ur1pwG7aA5ua2hQ0xLFIbNDUVmJ_lyuE7pfIzxhIX_qgEydEl-J4ygRAflj4n2eqY_ulwAb8BZqba0x715XtTV3u2c"/>
+</div>
+<h3 class="text-lg font-bold mb-1">Linha Felina Soft</h3>
+<p class="text-text-subtle text-xs mb-4">Ultra leve e flexível para a agilidade dos gatos.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="text-sm text-text-subtle line-through">R$ 99,00</span>
+<p class="text-2xl font-black text-primary">R$ 79,90</p>
+</div>
+<button class="size-12 bg-primary text-white rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-primary/40 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sizing Guide -->
+<section class="py-24 px-6 max-w-[1200px] mx-auto" id="medidas">
+<div class="bg-background-dark text-white rounded-xl p-8 md:p-16 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[300px] rotate-12">straighten</span>
+</div>
+<div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl md:text-5xl font-black mb-6">Acerte no tamanho do seu pet</h2>
+<p class="text-primary/80 mb-8 text-lg">Uma roupa no tamanho correto garante a eficácia da recuperação e o conforto total.</p>
+<div class="space-y-4">
+<div class="flex gap-4 items-start">
+<div class="bg-primary size-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold">1</div>
+<div>
+<p class="font-bold text-lg">Comprimento</p>
+<p class="text-gray-400 text-sm">Meça da base do pescoço até o início da cauda.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="bg-primary size-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold">2</div>
+<div>
+<p class="font-bold text-lg">Peitoral</p>
+<p class="text-gray-400 text-sm">Circunferência logo atrás das patas dianteiras.</p>
+</div>
+</div>
+</div>
+<button class="mt-10 bg-white text-background-dark px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-primary hover:text-white transition-colors">
+                            Ver Tabela Completa
+                            <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<div class="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-sm">
+<div class="grid grid-cols-3 gap-4 border-b border-white/10 pb-4 mb-4 text-xs font-bold uppercase tracking-widest text-primary">
+<div>Tamanho</div>
+<div>Peso Ref.</div>
+<div>Comprimento</div>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-3 gap-4 text-sm">
+<div class="font-bold">PP</div>
+<div class="text-gray-400">1.5 - 2.5 kg</div>
+<div class="text-gray-400">24 - 28 cm</div>
+</div>
+<div class="grid grid-cols-3 gap-4 text-sm border-t border-white/5 pt-4">
+<div class="font-bold">P</div>
+<div class="text-gray-400">2.5 - 4.5 kg</div>
+<div class="text-gray-400">29 - 34 cm</div>
+</div>
+<div class="grid grid-cols-3 gap-4 text-sm border-t border-white/5 pt-4">
+<div class="font-bold text-primary">M (Ideal)</div>
+<div class="text-gray-400">4.5 - 8.0 kg</div>
+<div class="text-gray-400">35 - 42 cm</div>
+</div>
+<div class="grid grid-cols-3 gap-4 text-sm border-t border-white/5 pt-4">
+<div class="font-bold">G</div>
+<div class="text-gray-400">8.0 - 14 kg</div>
+<div class="text-gray-400">43 - 52 cm</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 px-6 bg-white overflow-hidden" id="depoimentos">
+<div class="max-w-[1200px] mx-auto">
+<h2 class="text-3xl md:text-5xl font-black text-center mb-16">O que dizem os tutores</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="p-8 border border-neutral-light rounded-xl bg-background-light">
+<div class="flex text-yellow-500 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-text-subtle mb-6 leading-relaxed">
+                            "Foi a melhor escolha para a castração da Luna. Ela não tentou tirar em momento nenhum e dormiu super tranquila. O material é muito macio."
+                        </p>
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-full bg-primary/20 bg-cover" data-alt="Avatar de cliente satisfeita" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2Ai1JRvrcOOoUE5TWY-8OSCliuvaManEUW5xaYdl0ui6MYBlBmS_VKp7JNkcEAUII1CL36xt5N_WxrKoep4i3fn1gOcYxfl-koVlE0W-bZuRvKG1b6nQQe__JVCKb8OyAnkOHJy5YZsbU-qirth6zi7sEkabEs9VzIzF6OUEQTO4Jm5bGu8PYI5gI-k-bx8rTMGaF2ajshDLG6DGotP-2lCI9KxiRFLd5yv4BBLxGKv4CLKpZEAT5pFQeVplG8dZapd_Y33A8Ul0')"></div>
+<div>
+<p class="font-bold text-sm">Mariana Silva</p>
+<p class="text-xs text-text-subtle">Tutora da Luna (Golden Retriever)</p>
+</div>
+</div>
+</div>
+<div class="p-8 border border-neutral-light rounded-xl bg-background-light">
+<div class="flex text-yellow-500 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-text-subtle mb-6 leading-relaxed">
+                            "O colar elizabetano deixava meu gato muito estressado, ele não comia. Com a roupa da PetGuard ele voltou ao normal na hora. Sensacional!"
+                        </p>
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-full bg-primary/20 bg-cover" data-alt="Avatar de cliente satisfeito" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrp4nVHXNDw_S8RCjNU6GVDw0ebhIGLlaDmZbdRdC1YQqS8ca5oBhXJinZeeHKnmgRrIGC7Tf2Rd0Zo2djUh9TpwUh_CvYd6akHF-EKZ30ELXDL1WvkiR2KHfWgsWfFl4OZsdAy9W1F4LCywVAxktx-qkKyDQRQoYobqUqVOa85N9o8WuHP1aS73ADFW_POwZ08fGsv4VxmDfbE7ThXTmnl6E7U9zXxYWLJtxcy00p54D28hM8SBn_ZvdRc3lycz5aL3g1JsR_a8I')"></div>
+<div>
+<p class="font-bold text-sm">Ricardo Mendes</p>
+<p class="text-xs text-text-subtle">Tutor do Oliver (Gato Persa)</p>
+</div>
+</div>
+</div>
+<div class="p-8 border border-neutral-light rounded-xl bg-background-light">
+<div class="flex text-yellow-500 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-text-subtle mb-6 leading-relaxed">
+                            "A entrega foi muito rápida, chegou no dia seguinte da compra. O guia de medidas funcionou perfeitamente, ficou certinho no Thor."
+                        </p>
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-full bg-primary/20 bg-cover" data-alt="Avatar de cliente satisfeito" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAc86YTKT1z8CYGnVDNfGBnYhubd2QfrELMIUlDXb0QRMcedd69H5H2IBaVEenFApaP0HAc54iteF1YQfF0oLlYZx81dYjUI5De_d5DzigKyF6csKIjsbUQapgIgmPbPt2nOZNJ1DpwLytY6rpgvxQiNhXbzI4bqWwZEX7RP7Wrom8c0LBDQuXfTjxBUjK-taM1vPhmPac7Tl_ovBMm_bn_U707V0xSD05lc5J95Chw6yRi77XNZgTaCLSWsL-EwxK_hySC7esDjqY')"></div>
+<div>
+<p class="font-bold text-sm">Fernanda Costa</p>
+<p class="text-xs text-text-subtle">Tutora do Thor (Beagle)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-6 bg-primary">
+<div class="max-w-[800px] mx-auto text-center text-white">
+<h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">Garanta uma recuperação sem traumas para seu pet</h2>
+<button class="bg-white text-primary px-12 py-5 rounded-full text-xl font-black hover:scale-105 transition-transform shadow-2xl">
+                    Comprar Agora - com 10% OFF
+                </button>
+<p class="mt-6 text-primary-100/80 text-sm font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">lock</span>
+                    Pagamento 100% Seguro &amp; Garantia de Satisfação
+                </p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark text-gray-400 py-16 px-6">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-white mb-6">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">pets</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight">PetGuard</h2>
+</div>
+<p class="text-sm leading-relaxed mb-6">
+                    Soluções inteligentes e humanas para o bem-estar animal durante a recuperação pós-cirúrgica.
+                </p>
+<div class="flex gap-4">
+<div class="size-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg">social_leaderboard</span>
+</div>
+<div class="size-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg">photo_camera</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Links Úteis</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Perguntas Frequentes (FAQ)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Política de Trocas</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Termos de Uso</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Seja um Revendedor</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Suporte</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Rastrear Pedido</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Fale Conosco</a></li>
+<li class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-sm">call</span>
+                        (11) 98765-4321
+                    </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span>
+                        contato@petguard.com.br
+                    </li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Newsletter</h4>
+<p class="text-xs mb-4">Receba dicas de cuidados veterinários e ofertas exclusivas.</p>
+<form class="space-y-3">
+<input class="w-full bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm focus:border-primary outline-none transition-all" placeholder="Seu melhor e-mail" type="email"/>
+<button class="w-full bg-primary text-white py-2 rounded-full font-bold text-sm hover:opacity-90">Inscrever</button>
+</form>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+<p>© 2024 PetGuard S.A. Todos os direitos reservados.</p>
+<div class="flex items-center gap-4">
+<img alt="Métodos de Pagamento" class="opacity-50 grayscale hover:grayscale-0 transition-all" data-alt="Logos de cartões de crédito e formas de pagamento" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASFXaYbywctmjj10xgQ7CYJBlZ6TwuYjx_kUgikHPJhLNwUghMTPkmdxCWgs6w6QK-Si7cUNsxaRgCZkAZKiH28CtIOmNKlEPLAouY1HwxMA5TXf17YBzNam8s6EubFWjXOwUAtpYn6UCad6xIGnUuVfi2c5PTVanHoF8WyqelNxiP4JKHYHax6GkQE1ZaleIl6dAyAvUqqpXzLOuoRMc1Y39YZW4h4UP1VG-SRg4JMEIM_owkTACgOGYFZvE1-fQ6WSGcNAEUR5A"/>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp -->
+<a class="fixed bottom-6 right-6 size-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-50" href="#">
+<span class="material-symbols-outlined text-3xl">chat</span>
+</a>
+</body></html>
 
-criarCards("Pós-Cirúrgica","pos-container");
-criarCards("Ortopédica","orto-container");
+<!-- WPet - Loja Virtual Pós-Cirúrgica e Ortopédica -->
+<!DOCTYPE html>
 
-function showSection(id){
-document.querySelectorAll("section").forEach(sec=>sec.classList.add("hidden-sec"));
-document.getElementById(id).classList.remove("hidden-sec");
-window.scrollTo(0,0);
-}
-
-const modeloSelect = document.getElementById("modelo");
-
-opcoes.forEach(op=>{
-const option = document.createElement("option");
-option.value = op;
-option.textContent = op;
-modeloSelect.appendChild(option);
-});
-
-function selecionarAssistente(cat,mod){
-document.getElementById("categoria").value = cat;
-document.getElementById("modelo").value = mod;
-}
-
-function calcular(){
-const cat = document.getElementById("categoria").value;
-const mod = document.getElementById("modelo").value;
-const peso = parseFloat(document.getElementById("peso").value);
-
-if(!cat || !mod || !peso){
-document.getElementById("resultado").innerHTML="Preencha todos os campos para continuar.";
-return;
-}
-
-let tamanho="";
-
-if(peso<=5) tamanho="PP";
-else if(peso<=10) tamanho="P";
-else if(peso<=20) tamanho="M";
-else tamanho="G";
-
-document.getElementById("resultado").innerHTML=`
-<strong>Resumo da Seleção:</strong><br>
-Categoria: ${cat}<br>
-Modelo: ${mod}<br>
-Peso informado: ${peso}kg<br><br>
-<strong>Tamanho Recomendado: ${tamanho}</strong><br><br>
-Produto pronto para inclusão em pedido hospitalar.
-`;
-}
-
-showSection("home");
-
-</script>
-
-</body>
-</html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WPet | Conforto e Proteção no Pós-Operatório</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#009485",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2321",
+                        "neutral-light": "#e6eeed",
+                        "text-main": "#101818",
+                        "text-subtle": "#5e8d88"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-light px-6 md:px-20 py-4">
+<div class="max-w-[1200px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">pets</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight">WPet</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#beneficios">Benefícios</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#produtos">Produtos</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#medidas">Como Medir</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#depoimentos">Depoimentos</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold hover:opacity-90 transition-all shadow-md shadow-primary/20" onclick="window.location.href='https://wa.me/5524992618871?text=Olá Assistente WPet! Gostaria de conhecer os modelos de roupas de recuperação.'">
+                    Comprar Agora
+                </button>
+<button class="md:hidden text-text-main">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative px-6 py-12 md:py-24 max-w-[1200px] mx-auto">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8 order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-bold">
+<span class="material-symbols-outlined text-sm">verified</span>
+                        Recomendado por Veterinários
+                    </div>
+<h1 class="text-4xl md:text-6xl font-black leading-[1.1] tracking-tight text-text-main">
+                        Conforto e Proteção no <span class="text-primary">Pós-Operatório</span>
+</h1>
+<p class="text-lg text-text-subtle leading-relaxed max-w-[540px]">
+                        Substitua o colar elizabetano por uma solução anatômica, respirável e livre de estresse para a recuperação do seu melhor amigo.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/30 flex items-center justify-center gap-2" onclick="window.location.href='#produtos'">Comprar na WPet <span class="material-symbols-outlined">shopping_cart</span></button>
+<button class="border-2 border-primary/20 text-primary px-8 py-4 rounded-full text-lg font-bold hover:bg-primary/5 transition-colors">
+                            Ver Vídeo
+                        </button>
+</div>
+</div>
+<div class="relative order-1 lg:order-2">
+<div class="w-full aspect-[4/3] rounded-xl overflow-hidden shadow-2xl bg-neutral-light border-4 border-white">
+<img alt="Cachorro e gato usando roupas de recuperação confortáveis" class="w-full h-full object-cover" data-alt="Cachorro e gato felizes usando roupas de recuperação" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8HJDhh9_XcbpM3Gja3xE0qI014W5EdxNfh_lfNWfNVm37WpyB6fB-9_jOpmOpeHsD_LXQQZ-hFY9OMJRgKgWDWhb7imufOfKcAMnSQsUGQO4wluoLFd3OslQfO9KOt1rdYpRqO5wzWW75D7sF9Aa5dUQbUqkbi21gdYRX08NRs6FHI4ats78bKvz0jvf_ChzZZmpdALbkopGCtCwnFvtxJd5tZw6UCN27DePUZuqeOHB4D4DVsMj8wsGS_VyhK7v6KZAyqY-4saA"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-3">
+<div class="size-12 bg-green-100 rounded-full flex items-center justify-center text-green-600">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<div>
+<p class="text-xs font-bold text-text-subtle">Recuperação</p>
+<p class="text-sm font-black text-text-main">3x Mais Rápida</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Bar -->
+<section class="bg-white py-12 border-y border-neutral-light">
+<div class="max-w-[1200px] mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-background-light transition-colors">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">stethoscope</span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-subtle">Recomendado por</p>
+<p class="text-lg font-bold text-text-main">Veterinários</p>
+<p class="text-xs text-primary font-bold">+500 clínicas parceiras</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-background-light transition-colors">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">air</span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-subtle">Material</p>
+<p class="text-lg font-bold text-text-main">Respirável</p>
+<p class="text-xs text-primary font-bold">Tecnologia Antimicrobiana</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl hover:bg-background-light transition-colors">
+<div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">local_shipping</span>
+</div>
+<div>
+<p class="text-sm font-medium text-text-subtle">Entrega Super</p>
+<p class="text-lg font-bold text-text-main">Rápida</p>
+<p class="text-xs text-primary font-bold">Postagem em até 24h</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem/Solution Section -->
+<section class="py-24 px-6 max-w-[1200px] mx-auto" id="beneficios">
+<div class="text-center max-w-[700px] mx-auto mb-16">
+<h2 class="text-3xl md:text-5xl font-black mb-6">Diga adeus ao estresse do "Cone da Vergonha"</h2>
+<p class="text-text-subtle text-lg leading-relaxed">
+                    Nossas roupas garantem mobilidade total para seu pet comer, dormir e brincar livremente durante o período mais crítico.
+                </p>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="bg-white border border-neutral-light p-8 rounded-xl hover:border-primary/40 transition-all group">
+<div class="size-14 rounded-full bg-background-light flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">sentiment_very_satisfied</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Redução de Estresse</h3>
+<p class="text-text-subtle text-sm leading-relaxed">
+                        Diferente do colar elizabetano, o pet mantém a visão periférica e não bate nos móveis da casa.
+                    </p>
+</div>
+<div class="bg-white border border-neutral-light p-8 rounded-xl hover:border-primary/40 transition-all group">
+<div class="size-14 rounded-full bg-background-light flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">shield</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Proteção Total</h3>
+<p class="text-text-subtle text-sm leading-relaxed">
+                        Cobre completamente a incisão cirúrgica, impedindo lambeduras, contaminação e abertura de pontos.
+                    </p>
+</div>
+<div class="bg-white border border-neutral-light p-8 rounded-xl hover:border-primary/40 transition-all group">
+<div class="size-14 rounded-full bg-background-light flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">body_fat</span>
+</div>
+<h3 class="text-xl font-bold mb-3">Design Anatômico</h3>
+<p class="text-text-subtle text-sm leading-relaxed">
+                        Tecido com elastano que se ajusta ao corpo do animal sem apertar ou limitar os movimentos naturais.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Product Showcase -->
+<section class="bg-white py-24 px-6 border-y border-neutral-light" id="produtos">
+<div class="max-w-[1200px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
+<div class="max-w-[500px]">
+<h2 class="text-3xl md:text-5xl font-black mb-4">Escolha o modelo ideal</h2>
+<p class="text-text-subtle">Desenvolvidos com aberturas anatômicas específicas para machos e fêmeas.</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold">Cães</button>
+<button class="bg-background-light text-text-subtle px-4 py-2 rounded-full text-sm font-bold">Gatos</button>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Product 1 -->
+<div class="flex flex-col group">
+<div class="aspect-[4/5] bg-background-light rounded-xl overflow-hidden relative mb-4">
+<img alt="Roupa de recuperação modelo fêmea" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cachorro usando roupa de recuperação azul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp5a4_hgT5Ecn6NTIGobEQkXpf3hvLAz5_ytZCUyHDgYFwuep3J3NoQmu9ujfgW2yidl9uL0halNuBfUofEjYEmmeHlno9sNVpADl5EVxz2-x2VmU9eccR7uMuBBgDATC7VK25OdSLesWfKY3DkELXqO3BUHnr4j6Ff25iYHT4iyLrCFE6UUwZXYaPNiOEwL7M8cD9tsQ2qyjVff7Mq3C_DtbPS9-jkGoLj2Zx4lkkQrFYSzZ6dgmkwcwmv2IykHZwNkX7EEEf9JQ"/>
+<div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Destaque</div>
+</div>
+<h3 class="text-lg font-bold mb-1">Modelo Fêmea / Unissex</h3>
+<p class="text-text-subtle text-xs mb-4">Abertura traseira completa e ajuste abdominal.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="text-sm text-text-subtle line-through">R$ 119,00</span>
+<p class="text-2xl font-black text-primary">R$ 89,90</p>
+</div>
+<button class="size-12 bg-primary text-white rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-primary/40 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="flex flex-col group">
+<div class="aspect-[4/5] bg-background-light rounded-xl overflow-hidden relative mb-4">
+<img alt="Roupa de recuperação modelo macho" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cachorro usando roupa de proteção verde" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBku6Plq2S6Au04vskbTbC0ULvocxFAlxaAfclCcijyBhP0A8Q9y4WHID9Me5ZpYMPb2tQIwltxL94_cHM-Am6e2iGi6sGUlJ1ibvrTgV0dYCA4CLUylOpxTau_eNzbNaxWYLGh8n-jh92en2-R9C8Gq-aw8UmQeJknQLZSo7rsDWjO_vt41WIGaFieAnL3VddGtWDfWezFvAoqGZkULVr-RsZPYHvkdJOwataGnDbLC-K7lWIkCEJm9dniQ6olESQe6j2FIqjmZxk"/>
+</div>
+<h3 class="text-lg font-bold mb-1">Modelo Macho Especial</h3>
+<p class="text-text-subtle text-xs mb-4">Corte higiênico para micção sem retirar a roupa.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="text-sm text-text-subtle line-through">R$ 125,00</span>
+<p class="text-2xl font-black text-primary">R$ 94,90</p>
+</div>
+<button class="size-12 bg-primary text-white rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-primary/40 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="flex flex-col group">
+<div class="aspect-[4/5] bg-background-light rounded-xl overflow-hidden relative mb-4">
+<img alt="Roupa de recuperação para gatos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Gato fofo usando roupa de recuperação rosa" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJj-vs0_NVw5dznfWRIwx7DVjNPEfbktD0GZU48J3A0ezwxhoirhgdLLCnIeeKVGTFjy42MDKcIY7njBmXoCD09SX1Wq4ZJ8AVH5cZGZnPJXxXhBZQMj3LJ-1fwnqvRHyvuxErP68D7CiK3bMtoYXYcvzNhQm352pNnsrk6lTvMJBLXtYP3ur1pwG7aA5ua2hQ0xLFIbNDUVmJ_lyuE7pfIzxhIX_qgEydEl-J4ygRAflj4n2eqY_ulwAb8BZqba0x715XtTV3u2c"/>
+</div>
+<h3 class="text-lg font-bold mb-1">Linha Felina Soft</h3>
+<p class="text-text-subtle text-xs mb-4">Ultra leve e flexível para a agilidade dos gatos.</p>
+<div class="mt-auto flex items-center justify-between">
+<div>
+<span class="text-sm text-text-subtle line-through">R$ 99,00</span>
+<p class="text-2xl font-black text-primary">R$ 79,90</p>
+</div>
+<button class="size-12 bg-primary text-white rounded-full flex items-center justify-center hover:shadow-lg hover:shadow-primary/40 transition-all">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sizing Guide -->
+<section class="py-24 px-6 max-w-[1200px] mx-auto" id="medidas">
+<div class="bg-background-dark text-white rounded-xl p-8 md:p-16 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[300px] rotate-12">straighten</span>
+</div>
+<div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-3xl md:text-5xl font-black mb-6">Acerte no tamanho do seu pet</h2>
+<p class="text-primary/80 mb-8 text-lg">Uma roupa no tamanho correto garante a eficácia da recuperação e o conforto total.</p>
+<div class="space-y-4">
+<div class="flex gap-4 items-start">
+<div class="bg-primary size-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold">1</div>
+<div>
+<p class="font-bold text-lg">Comprimento</p>
+<p class="text-gray-400 text-sm">Meça da base do pescoço até o início da cauda.</p>
+</div>
+</div>
+<div class="flex gap-4 items-start">
+<div class="bg-primary size-8 rounded-full flex-shrink-0 flex items-center justify-center font-bold">2</div>
+<div>
+<p class="font-bold text-lg">Peitoral</p>
+<p class="text-gray-400 text-sm">Circunferência logo atrás das patas dianteiras.</p>
+</div>
+</div>
+</div>
+<button class="mt-10 bg-white text-background-dark px-8 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-primary hover:text-white transition-colors">
+                            Ver Tabela Completa
+                            <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<div class="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-sm">
+<div class="grid grid-cols-3 gap-4 border-b border-white/10 pb-4 mb-4 text-xs font-bold uppercase tracking-widest text-primary">
+<div>Tamanho</div>
+<div>Peso Ref.</div>
+<div>Comprimento</div>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-3 gap-4 text-sm">
+<div class="font-bold">PP</div>
+<div class="text-gray-400">1.5 - 2.5 kg</div>
+<div class="text-gray-400">24 - 28 cm</div>
+</div>
+<div class="grid grid-cols-3 gap-4 text-sm border-t border-white/5 pt-4">
+<div class="font-bold">P</div>
+<div class="text-gray-400">2.5 - 4.5 kg</div>
+<div class="text-gray-400">29 - 34 cm</div>
+</div>
+<div class="grid grid-cols-3 gap-4 text-sm border-t border-white/5 pt-4">
+<div class="font-bold text-primary">M (Ideal)</div>
+<div class="text-gray-400">4.5 - 8.0 kg</div>
+<div class="text-gray-400">35 - 42 cm</div>
+</div>
+<div class="grid grid-cols-3 gap-4 text-sm border-t border-white/5 pt-4">
+<div class="font-bold">G</div>
+<div class="text-gray-400">8.0 - 14 kg</div>
+<div class="text-gray-400">43 - 52 cm</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-24 px-6 bg-white overflow-hidden" id="depoimentos">
+<div class="max-w-[1200px] mx-auto">
+<h2 class="text-3xl md:text-5xl font-black text-center mb-16">O que dizem os tutores</h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="p-8 border border-neutral-light rounded-xl bg-background-light">
+<div class="flex text-yellow-500 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-text-subtle mb-6 leading-relaxed">
+                            "Foi a melhor escolha para a castração da Luna. Ela não tentou tirar em momento nenhum e dormiu super tranquila. O material é muito macio."
+                        </p>
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-full bg-primary/20 bg-cover" data-alt="Avatar de cliente satisfeita" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD2Ai1JRvrcOOoUE5TWY-8OSCliuvaManEUW5xaYdl0ui6MYBlBmS_VKp7JNkcEAUII1CL36xt5N_WxrKoep4i3fn1gOcYxfl-koVlE0W-bZuRvKG1b6nQQe__JVCKb8OyAnkOHJy5YZsbU-qirth6zi7sEkabEs9VzIzF6OUEQTO4Jm5bGu8PYI5gI-k-bx8rTMGaF2ajshDLG6DGotP-2lCI9KxiRFLd5yv4BBLxGKv4CLKpZEAT5pFQeVplG8dZapd_Y33A8Ul0')"></div>
+<div>
+<p class="font-bold text-sm">Mariana Silva</p>
+<p class="text-xs text-text-subtle">Tutora da Luna (Golden Retriever)</p>
+</div>
+</div>
+</div>
+<div class="p-8 border border-neutral-light rounded-xl bg-background-light">
+<div class="flex text-yellow-500 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-text-subtle mb-6 leading-relaxed">
+                            "O colar elizabetano deixava meu gato muito estressado, ele não comia. Com a roupa da PetGuard ele voltou ao normal na hora. Sensacional!"
+                        </p>
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-full bg-primary/20 bg-cover" data-alt="Avatar de cliente satisfeito" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrp4nVHXNDw_S8RCjNU6GVDw0ebhIGLlaDmZbdRdC1YQqS8ca5oBhXJinZeeHKnmgRrIGC7Tf2Rd0Zo2djUh9TpwUh_CvYd6akHF-EKZ30ELXDL1WvkiR2KHfWgsWfFl4OZsdAy9W1F4LCywVAxktx-qkKyDQRQoYobqUqVOa85N9o8WuHP1aS73ADFW_POwZ08fGsv4VxmDfbE7ThXTmnl6E7U9zXxYWLJtxcy00p54D28hM8SBn_ZvdRc3lycz5aL3g1JsR_a8I')"></div>
+<div>
+<p class="font-bold text-sm">Ricardo Mendes</p>
+<p class="text-xs text-text-subtle">Tutor do Oliver (Gato Persa)</p>
+</div>
+</div>
+</div>
+<div class="p-8 border border-neutral-light rounded-xl bg-background-light">
+<div class="flex text-yellow-500 mb-4">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="italic text-text-subtle mb-6 leading-relaxed">
+                            "A entrega foi muito rápida, chegou no dia seguinte da compra. O guia de medidas funcionou perfeitamente, ficou certinho no Thor."
+                        </p>
+<div class="flex items-center gap-3">
+<div class="size-12 rounded-full bg-primary/20 bg-cover" data-alt="Avatar de cliente satisfeito" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAc86YTKT1z8CYGnVDNfGBnYhubd2QfrELMIUlDXb0QRMcedd69H5H2IBaVEenFApaP0HAc54iteF1YQfF0oLlYZx81dYjUI5De_d5DzigKyF6csKIjsbUQapgIgmPbPt2nOZNJ1DpwLytY6rpgvxQiNhXbzI4bqWwZEX7RP7Wrom8c0LBDQuXfTjxBUjK-taM1vPhmPac7Tl_ovBMm_bn_U707V0xSD05lc5J95Chw6yRi77XNZgTaCLSWsL-EwxK_hySC7esDjqY')"></div>
+<div>
+<p class="font-bold text-sm">Fernanda Costa</p>
+<p class="text-xs text-text-subtle">Tutora do Thor (Beagle)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 px-6 bg-primary">
+<div class="max-w-[800px] mx-auto text-center text-white">
+<h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight">Garanta uma recuperação sem traumas para seu pet</h2>
+<button class="bg-white text-primary px-12 py-5 rounded-full text-xl font-black hover:scale-105 transition-transform shadow-2xl" onclick="window.location.href='https://wa.me/5524992618871?text=Olá! Vim pelo site e quero meu cupom de 10% OFF na WPet.'">
+                    Comprar Agora - com 10% OFF
+                </button>
+<p class="mt-6 text-primary-100/80 text-sm font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">lock</span>
+                    Pagamento 100% Seguro &amp; Garantia de Satisfação
+                </p>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark text-gray-400 py-16 px-6">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-white mb-6">
+<div class="bg-primary p-1.5 rounded-lg text-white">
+<span class="material-symbols-outlined text-2xl">pets</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight">WPet</h2>
+</div>
+<p class="text-sm leading-relaxed mb-6">WPet: Soluções inteligentes e humanas para o bem-estar animal durante a recuperação pós-cirúrgica e ortopédica.</p>
+<div class="flex gap-4">
+<div class="size-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg">social_leaderboard</span>
+</div>
+<div class="size-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-lg">photo_camera</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Links Úteis</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Perguntas Frequentes (FAQ)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Política de Trocas</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Termos de Uso</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Seja um Revendedor</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Suporte</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Rastrear Pedido</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Fale Conosco</a></li>
+<li class="flex items-center gap-2 text-primary font-bold">
+<span class="material-symbols-outlined text-sm">call</span>
+                        (11) 98765-4321
+                    </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">mail</span>
+                        contato@petguard.com.br
+                    </li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">Newsletter</h4>
+<p class="text-xs mb-4">© 2024 WPet S.A. Todos os direitos reservados.</p>
+<form class="space-y-3">
+<input class="w-full bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm focus:border-primary outline-none transition-all" placeholder="Seu melhor e-mail" type="email"/>
+<button class="w-full bg-primary text-white py-2 rounded-full font-bold text-sm hover:opacity-90">Inscrever</button>
+</form>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+<p>© 2024 PetGuard S.A. Todos os direitos reservados.</p>
+<div class="flex items-center gap-4">
+<img alt="Métodos de Pagamento" class="opacity-50 grayscale hover:grayscale-0 transition-all" data-alt="Logos de cartões de crédito e formas de pagamento" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASFXaYbywctmjj10xgQ7CYJBlZ6TwuYjx_kUgikHPJhLNwUghMTPkmdxCWgs6w6QK-Si7cUNsxaRgCZkAZKiH28CtIOmNKlEPLAouY1HwxMA5TXf17YBzNam8s6EubFWjXOwUAtpYn6UCad6xIGnUuVfi2c5PTVanHoF8WyqelNxiP4JKHYHax6GkQE1ZaleIl6dAyAvUqqpXzLOuoRMc1Y39YZW4h4UP1VG-SRg4JMEIM_owkTACgOGYFZvE1-fQ6WSGcNAEUR5A"/>
+</div>
+</div>
+</footer>
+<!-- Floating WhatsApp -->
+<a class="fixed bottom-6 right-6 size-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-50" href="https://wa.me/5524992618871?text=Olá Assistente WPet! Preciso de ajuda para escolher o melhor modelo para meu pet."><span class="material-symbols-outlined text-3xl">smart_toy</span><div class="absolute -top-12 right-0 bg-white text-text-main text-[10px] font-bold px-3 py-1 rounded-lg shadow-lg border border-neutral-light whitespace-nowrap">Assistente WPet</div></a>
+</body></html>
