@@ -1,14 +1,36 @@
 <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>WPet - Conforto e Recuperação para seu Pet</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 
-<html lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>WPet - Conforto e Recuperação para seu Pet</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+    <script>
+        const IMAGE_CONFIG = {
+            // Se usar fotos do próprio GitHub, coloque o caminho como: "img/foto.jpg"
+            // Se usar fotos da internet, coloque o link completo: "https://site.com/foto.jpg"
+            
+            logo: "https://placehold.co/150x50/13ecc8/white?text=WPet+Logo",
+            bannerHero: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=2069&auto=format&fit=crop",
+            produtoDestaque: "https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=2070&auto=format&fit=crop",
+            depoimentoUser: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1974&auto=format&fit=crop"
+        };
+
+        // Função para carregar as imagens automaticamente
+        window.onload = () => {
+            document.querySelectorAll('[data-img-key]').forEach(el => {
+                const key = el.getAttribute('data-img-key');
+                if (IMAGE_CONFIG[key]) {
+                    if (el.tagName === 'IMG') el.src = IMAGE_CONFIG[key];
+                    else el.style.backgroundImage = `url('${IMAGE_CONFIG[key]}')`;
+                }
+            });
+        };
+    </script>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -26,389 +48,33 @@
             },
         }
     </script>
-<style>
+    <style>
         body { font-family: 'Inter', sans-serif; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-[#0d1b19] font-display">
-<!-- Header -->
-<header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-[#e7f3f1] px-4 md:px-20 py-4">
-<div class="max-w-[1200px] mx-auto flex items-center justify-between">
-<div class="flex items-center gap-2">
-<div class="text-primary size-8"><img alt="WPet Logo" class="h-10 w-auto" src="{{DATA:IMAGE:IMAGE_2}}"/></div>
-<h1 class="text-2xl font-black tracking-tight">WPet</h1>
-</div>
-<nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
-<a class="hover:text-primary transition-colors" href="#pos-cirurgica">Pós-Cirúrgica</a>
-<a class="hover:text-primary transition-colors" href="#ortopedica">Ortopédica</a>
-<a class="hover:text-primary transition-colors" href="#sobre">Sobre</a>
-<a class="hover:text-primary transition-colors" href="#contato">Contato</a>
-</nav>
-<div class="flex items-center gap-4">
-<button class="p-2 hover:bg-primary/10 rounded-full transition-colors relative">
-<span class="material-symbols-outlined">shopping_cart</span>
-<span class="absolute top-0 right-0 bg-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white">0</span>
-</button>
-<div class="size-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="Avatar de usuário feliz com pet" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAX6QisdY07IZj-vlIJ9Es9AyjQerSz_3EtNABLrmDGaL6Uti2NoV1ArulGSXwcHssXZFehqxYemPMaYaveM9VsoxSd_8ptO1SCC0-_gA9Nd4yWAKwQ6QdkGY6NrWYaM7aKMXYxRnIt8OWc-ENbRRCivwcvLXnD4Gi54Hf4dgYSy67vX5suh193k3vL-2KgLsxbWrPVxGFmBBy0BV6qXVigsVMS2YFWZe4nKv1ZUA1donHlqnZcZJzOp7sXMB9io-fSJK0Okyd4baGj");'></div>
-</div>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="relative overflow-hidden bg-white px-4 md:px-20 py-12 md:py-24">
-<div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-12 items-center">
-<div class="flex flex-col gap-8">
-<div class="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold uppercase tracking-wider">
-<span class="material-symbols-outlined text-sm">verified_user</span>
-                    Recomendado por Veterinários
-                </div>
-<h2 class="text-5xl md:text-7xl font-black leading-tight tracking-tighter">
-                    Recuperação com <span class="text-primary">Carinho</span> e Proteção Total.
-                </h2>
-<p class="text-lg text-slate-600 leading-relaxed max-w-md">
-                    Roupas pós-cirúrgicas e ortopédicas de alta tecnologia. Proteção anatômica para que seu pet se recupere com total liberdade, conforto e segurança.
-                </p>
-<div class="flex flex-col sm:flex-row gap-4">
-<a class="bg-primary hover:bg-primary/90 text-[#0d1b19] font-bold px-8 py-4 rounded-lg flex items-center justify-center gap-2 transition-all transform hover:scale-105" href="#pos-cirurgica">
-                        Ver Vitrine
-                        <span class="material-symbols-outlined">arrow_forward</span>
-</a>
-<a class="border-2 border-primary text-[#0d1b19] font-bold px-8 py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-primary/5 transition-all" href="#assistente">
-                        Falar com Assistente
-                    </a>
-</div>
-</div>
-<div class="relative">
-<div class="aspect-square rounded-2xl bg-primary/5 absolute -top-4 -right-4 w-full h-full -z-10"></div>
-<img alt="Cachorro confortável usando roupa protetora" class="w-full h-auto rounded-2xl shadow-2xl object-cover" data-alt="Cachorro feliz usando roupa azul pós-cirúrgica" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcxqfkND4KGG3DxJA54J6AFmg1F4mG0WRZA_dIyRLzxFKpfPH4JEB8ctKVC8su2TXGBoUMB3as273JImmf4LszgtNl-wQjuuEvL4paegzvhBGaEwOtN-ieaUBqNNO3CDSBaONPgZcKBSjOenW_GulRo9LT2AqRbr2pV60FAeFiBGcXvuTNeq8jnEj_kcY0v-YADONowOVJZ74LAIithhAHAwf4eJFR8hcjAAEGLMrXUA2pBYM3rfKFiLb3Txe69COC1gncFnxI85TI"/>
-<div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-primary/20 flex items-center gap-4">
-<div class="bg-primary/20 p-2 rounded-lg">
-<span class="material-symbols-outlined text-primary">healing</span>
-</div>
-<div>
-<p class="text-sm font-bold">Tecnologia Dry-Fit</p>
-<p class="text-xs text-slate-500">Respirável e antibacteriano</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Linha Pós-Cirúrgica -->
-<section class="px-4 md:px-20 py-20 bg-background-light" id="pos-cirurgica">
-<div class="max-w-[1200px] mx-auto">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-<div>
-<h3 class="text-3xl font-black tracking-tight mb-2">Linha Pós-Cirúrgica</h3>
-<p class="text-slate-500">Proteção máxima contra lambeduras e infecções após procedimentos.</p>
-</div>
-<div class="h-px flex-1 bg-slate-200 mx-8 hidden md:block mb-4"></div>
-<span class="text-primary font-bold flex items-center gap-1">
-<span class="material-symbols-outlined">inventory_2</span>
-                    8 Cores Disponíveis
-                </span>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><!-- Product Loop handled by script below --></div>
-</div>
-</section>
-<!-- Technical Details -->
-<section class="px-4 md:px-20 py-20 bg-white" id="sobre">
-<div class="max-w-[1200px] mx-auto bg-primary/5 rounded-3xl p-8 md:p-16 relative overflow-hidden">
-<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
-<div class="grid md:grid-cols-2 gap-12 items-center">
-<div>
-<h3 class="text-4xl font-black mb-8">Tecnologia Têxtil de Ponta</h3>
-<div class="grid gap-6">
-<div class="flex gap-4">
-<div class="bg-primary size-12 rounded-xl flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-white">science</span>
-</div>
-<div>
-<h5 class="font-bold text-xl mb-1">Composição Premium</h5>
-<p class="text-slate-600">82.5% Poliéster (PES) e 17.5% Elastano (PUE). O equilíbrio perfeito entre resistência e flexibilidade.</p>
-</div>
-</div>
-<div class="flex gap-4">
-<div class="bg-primary size-12 rounded-xl flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-white">air</span>
-</div>
-<div>
-<h5 class="font-bold text-xl mb-1">Ultra-Leve e Respirável</h5>
-<p class="text-slate-600">Tecido tecnológico que permite a circulação do ar, acelerando a cicatrização e mantendo o pet fresco.</p>
-</div>
-</div>
-<div class="flex gap-4">
-<div class="bg-primary size-12 rounded-xl flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-white">fitness_center</span>
-</div>
-<div>
-<h5 class="font-bold text-xl mb-1">Elasticidade Anatômica</h5>
-<p class="text-slate-600">Adapta-se ao corpo do animal sem restringir movimentos ou causar pontos de pressão excessiva.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="relative group">
-<div class="aspect-square bg-white rounded-2xl shadow-xl p-4 transform transition-transform group-hover:-rotate-2">
-<img alt="Detalhe do tecido" class="w-full h-full object-cover rounded-xl" data-alt="Macro detalhe de tecido esportivo respirável" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKdoeCnn4BI2VLIoM1n8O_wx6WmAk5VMslZZswaNyyr6kl3w-w-Ku_fevX9GTDsVlXoSrSw3VTDv_caWs8WjaK4YbMBWScZPkwSoIc6mAES_f85nNnNCXalLJt8usr7dU_9sUPmaiAzCoAEYZCkPCeRqhJw2xiA2BtPIsuQVtjOt_MCBSI-K5GdaydPBFQcpokIfWwkTEcqcqAFIuwWjPcU-OuJ1gY9uIHjZOzgN1FJGF5pxchtbfchcLVx8sjwl-aEE9OD4Yz5LEY"/>
-<div class="mt-4 flex justify-between items-center px-2">
-<span class="text-xs font-bold text-slate-400">MATERIAL HIGH-TECH</span>
-<span class="text-primary font-black">CERTIFICADO WPET</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Linha Ortopédica -->
-<section class="px-4 md:px-20 py-20 bg-background-light" id="ortopedica">
-<div class="max-w-[1200px] mx-auto">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-<div>
-<h3 class="text-3xl font-black tracking-tight mb-2">Linha Ortopédica</h3>
-<p class="text-slate-500">Suporte e estabilidade para articulações e problemas de mobilidade.</p>
-</div>
-<div class="h-px flex-1 bg-slate-200 mx-8 hidden md:block mb-4"></div>
-<span class="text-primary font-bold flex items-center gap-1">
-<span class="material-symbols-outlined">accessibility</span>
-                    Suporte Avançado
-                </span>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"><!-- Product Loop handled by script below --></div>
-</div>
-</section>
-<!-- Assistant Integration Section -->
-<section class="px-4 md:px-20 py-20 bg-slate-900 text-white relative overflow-hidden" id="assistente">
-<div class="max-w-[800px] mx-auto text-center relative z-10">
-<div class="bg-primary size-16 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-primary/40">
-<span class="material-symbols-outlined text-slate-900 text-3xl font-bold">chat</span>
-</div>
-<h3 class="text-4xl font-black mb-6">Como funciona o Assistente WPet?</h3>
-<p class="text-slate-400 text-lg mb-12">
-                Nós humanizamos sua experiência de compra. Ao clicar em comprar, você será conectado diretamente ao nosso especialista via WhatsApp, que já receberá sua escolha de linha e cor para agilizar o atendimento.
-            </p>
-<div class="grid md:grid-cols-3 gap-8 mb-12">
-<div class="p-6 bg-white/5 rounded-2xl border border-white/10">
-<h6 class="text-primary font-bold text-3xl mb-2">01</h6>
-<p class="text-sm">Escolha sua linha e cor preferida.</p>
-</div>
-<div class="p-6 bg-white/5 rounded-2xl border border-white/10">
-<h6 class="text-primary font-bold text-3xl mb-2">02</h6>
-<p class="text-sm">Clique em 'Comprar via Assistente'.</p>
-</div>
-<div class="p-6 bg-white/5 rounded-2xl border border-white/10">
-<h6 class="text-primary font-bold text-3xl mb-2">03</h6>
-<p class="text-sm">Finalize o pedido humanizado no WhatsApp.</p>
-</div>
-</div>
-<a class="inline-flex items-center gap-3 bg-primary text-slate-900 font-black px-10 py-5 rounded-full hover:scale-105 transition-transform text-lg" href="https://wa.me/5524992618871">
-<span class="material-symbols-outlined">phone_iphone</span>
-                +55 24 99261-8871
-            </a>
-</div>
-<div class="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-[120px] -ml-48"></div>
-<div class="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] -mr-48"></div>
-</section>
-<!-- Footer -->
-<footer class="bg-white border-t border-slate-100 pt-20 pb-10 px-4 md:px-20" id="contato">
-<div class="max-w-[1200px] mx-auto grid md:grid-cols-4 gap-12 mb-16">
-<div class="col-span-1 md:col-span-1">
-<div class="flex items-center gap-2 mb-6">
-<div class="text-primary size-6"><img alt="WPet Logo" class="h-8 w-auto" src="{{DATA:IMAGE:IMAGE_2}}"/></div>
-<span class="text-xl font-black">WPet</span>
-</div>
-<p class="text-slate-500 text-sm leading-relaxed mb-6">
-                    Dedicados à recuperação plena e confortável dos animais de estimação através de vestuário inteligente.
-                </p>
-<div class="flex gap-4">
-<a class="bg-slate-100 p-2 rounded-lg hover:bg-primary/20 transition-colors" href="#">
-<span class="material-symbols-outlined text-xl">share</span>
-</a>
-<a class="bg-slate-100 p-2 rounded-lg hover:bg-primary/20 transition-colors" href="#">
-<span class="material-symbols-outlined text-xl">person</span>
-</a>
-</div>
-</div>
-<div>
-<h6 class="font-bold mb-6 uppercase text-xs tracking-widest text-slate-400">Links Rápidos</h6>
-<ul class="flex flex-col gap-4 text-sm font-medium">
-<li><a class="hover:text-primary transition-colors" href="#pos-cirurgica">Pós-Cirúrgica</a></li>
-<li><a class="hover:text-primary transition-colors" href="#ortopedica">Ortopédica</a></li>
-<li><a class="hover:text-primary transition-colors" href="#sobre">Tecnologia</a></li>
-<li><a class="hover:text-primary transition-colors" href="#assistente">Assistente Virtual</a></li>
-</ul>
-</div>
-<div>
-<h6 class="font-bold mb-6 uppercase text-xs tracking-widest text-slate-400">Suporte</h6>
-<ul class="flex flex-col gap-4 text-sm font-medium">
-<li class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-lg">call</span>
-                        +55 24 99261-8871
-                    </li>
-<li class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-lg">mail</span>
-                        contato@wpet.com.br
-                    </li>
-<li class="flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-lg">location_on</span>
-                        Brasil
-                    </li>
-</ul>
-</div>
-<div>
-<h6 class="font-bold mb-6 uppercase text-xs tracking-widest text-slate-400">Selo de Confiança</h6>
-<div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-<div class="flex items-center gap-3 mb-3">
-<span class="material-symbols-outlined text-primary">security</span>
-<span class="text-xs font-bold">Compra Segura</span>
-</div>
-<p class="text-[10px] text-slate-400 uppercase tracking-tighter leading-tight">
-                        Seus dados são protegidos por criptografia de ponta a ponta durante o atendimento.
-                    </p>
-</div>
-</div>
-</div>
-<div class="max-w-[1200px] mx-auto border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
-<p>© 2024 WPET. Todos os direitos reservados.</p>
-<div class="flex gap-8">
-<a class="hover:text-primary" href="#">Termos de Uso</a>
-<a class="hover:text-primary" href="#">Privacidade</a>
-</div>
-</div>
-</footer>
-<!-- Assistant Modal -->
-<div class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4" id="assistant-modal">
-<div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeAssistant()"></div>
-<div class="relative bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
-<div class="bg-primary p-6 text-slate-900">
-<div class="flex justify-between items-center">
-<h3 class="font-black text-xl tracking-tight">Assistente WPet</h3>
-<button class="p-2 hover:bg-white/20 rounded-full" onclick="closeAssistant()">
-<span class="material-symbols-outlined">close</span>
-</button>
-</div>
-<p class="text-xs font-bold uppercase opacity-80 mt-1" id="modal-product-title"></p>
-</div>
-<div class="p-6 space-y-6">
-<div id="step-1">
-<p class="font-bold mb-3">Passo 1: Qual o sexo do seu pet?</p>
-<div class="grid grid-cols-2 gap-4">
-<button class="p-4 border-2 border-slate-100 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-center" onclick="setSex('Fêmea')">
-<span class="material-symbols-outlined block text-3xl mb-1">female</span>
-<span class="font-bold">Fêmea</span>
-</button>
-<button class="p-4 border-2 border-slate-100 rounded-xl hover:border-primary hover:bg-primary/5 transition-all text-center" onclick="setSex('Macho')">
-<span class="material-symbols-outlined block text-3xl mb-1">male</span>
-<span class="font-bold">Macho</span>
-</button>
-</div>
-</div>
-<div class="hidden" id="step-2">
-<p class="font-bold mb-3">Passo 2: Qual o peso aproximado (kg)?</p>
-<input class="w-full p-4 bg-slate-50 border-0 rounded-xl focus:ring-2 focus:ring-primary mb-4" id="pet-weight" placeholder="Ex: 4.5" type="number"/>
-<button class="w-full py-4 bg-primary text-slate-900 font-black rounded-xl" onclick="calculateSize()">Calcular Tamanho</button>
-</div>
-<div class="hidden" id="step-3">
-<p class="font-bold mb-3">Passo 3: Quantas unidades?</p>
-<div class="flex items-center justify-center gap-6">
-<button class="size-12 rounded-full border-2 border-slate-100 flex items-center justify-center font-bold" onclick="changeQty(-1)">-</button>
-<span class="text-3xl font-black" id="pet-qty">1</span>
-<button class="size-12 rounded-full border-2 border-slate-100 flex items-center justify-center font-bold" onclick="changeQty(1)">+</button>
-</div>
-<div class="mt-8 p-4 bg-primary/10 rounded-xl border border-primary/20">
-<p class="text-xs font-bold uppercase text-slate-500">Tamanho Ideal:</p>
-<p class="text-2xl font-black text-primary" id="calculated-size">Carregando...</p>
-</div>
-<div class="grid gap-3 mt-6">
-<button class="w-full py-4 bg-primary text-slate-900 font-black rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2" onclick="finalizarCompra()">
-                        FINALIZAR COMPRA
-                        <span class="material-symbols-outlined text-sm">shopping_cart_checkout</span>
-</button>
-<button class="w-full py-3 text-slate-400 font-bold text-xs uppercase" onclick="closeAssistant()">Continuar Comprando</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<a class="fixed bottom-6 right-6 z-[90] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center gap-2 group" href="https://wa.me/5524992618871">
-<span class="font-bold text-sm hidden group-hover:block pl-2">Falar no WhatsApp</span>
-<svg class="size-6 fill-current" viewbox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.228 3.481 8.408c0 6.556-5.332 11.888-11.888 11.888-2.003 0-3.96-.506-5.717-1.465L0 24zm6.23-4.102c1.65.986 3.272 1.48 4.965 1.48 5.405 0 9.802-4.397 9.802-9.802 0-2.618-1.02-5.08-2.871-6.931s-4.313-2.871-6.931-2.871c-5.405 0-9.802 4.397-9.802 9.802 0 1.821.507 3.597 1.465 5.158l-1.077 3.931 4.049-1.067z"></path></svg>
-</a>
-<script>
-let currentData = { line: '', product: '', sex: '', weight: 0, qty: 1, size: '' };
 
-function openAssistant(line, name) {
-    currentData = { line, product: name, sex: '', weight: 0, qty: 1, size: '' };
-    document.getElementById('modal-product-title').innerText = `${line} - ${name}`;
-    document.getElementById('assistant-modal').classList.remove('hidden');
-    showStep(1);
-}
-
-function closeAssistant() {
-    document.getElementById('assistant-modal').classList.add('hidden');
-}
-
-function showStep(n) {
-    [1, 2, 3].forEach(s => document.getElementById(`step-${s}`).classList.add('hidden'));
-    document.getElementById(`step-${n}`).classList.remove('hidden');
-}
-
-function setSex(s) {
-    currentData.sex = s;
-    showStep(2);
-}
-
-function changeQty(n) {
-    currentData.qty = Math.max(1, currentData.qty + n);
-    document.getElementById('pet-qty').innerText = currentData.qty;
-}
-
-function calculateSize() {
-    const weight = parseFloat(document.getElementById('pet-weight').value);
-    if (!weight) return alert('Por favor, insira o peso.');
+<header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-[#e7f3f1] px-4 md:px-20 py-4 flex justify-between items-center">
+    <img data-img-key="logo" alt="WPet Logo" class="h-10 object-contain">
     
-    currentData.weight = weight;
-    let size = 'Sob Consulta';
+    <nav class="hidden md:flex space-x-8 font-medium">
+        <a href="#" class="hover:text-primary transition-colors">Início</a>
+        <a href="#" class="hover:text-primary transition-colors">Produtos</a>
+        <a href="#" class="hover:text-primary transition-colors">Sobre</a>
+        <a href="#" class="hover:text-primary transition-colors">Contato</a>
+    </nav>
+</header>
 
-    if (currentData.sex === 'Fêmea') {
-        if (weight <= 1.5) size = '0';
-        else if (weight <= 2.5) size = '1';
-        else if (weight <= 3.5) size = '2';
-        else if (weight <= 4.5) size = '3';
-        else if (weight <= 6) size = '4';
-        else if (weight <= 8) size = '5';
-        else if (weight <= 10) size = '6';
-        else if (weight <= 13) size = '7';
-        else if (weight <= 17) size = '8';
-        else if (weight <= 21) size = '9';
-        else if (weight <= 27) size = '10';
-        else if (weight <= 33) size = '11';
-        else if (weight <= 40) size = '12';
-        else if (weight <= 48) size = '13';
-        else if (weight <= 56) size = '14';
-        else size = '15';
-    } else {
-        if (weight <= 1.5) size = '1';
-        else if (weight <= 2.5) size = '2';
-        else if (weight <= 3.5) size = '3';
-        else if (weight <= 5) size = '4';
-        else if (weight <= 6) size = '5';
-        else if (weight <= 8) size = '6';
-        else if (weight <= 10) size = '7';
-        else if (weight <= 13) size = '8';
-        else if (weight <= 17) size = '9';
-        else if (weight <= 21) size = '10';
-        else if (weight <= 32) size = '11';
-        else size = '12';
-    }
+<main>
+    <section class="relative h-[500px] flex items-center justify-center text-white overflow-hidden">
+        <div data-img-key="bannerHero" class="absolute inset-0 bg-cover bg-center -z-10 brightness-50"></div>
+        <div class="text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-black mb-4">Conforto para seu Pet</h1>
+            <p class="text-xl opacity-90">A recuperação que ele merece com o estilo que você ama.</p>
+        </div>
+    </section>
+</main>
 
-    currentData.size = size;
-    document.getElementById('calculated-size').innerText = size;
-    showStep(3);
-}
-
-function finalizarCompra() {
-    const msg = `Olá, gostaria de finalizar meu pedido: Categoria: ${currentData.line}, Produto: ${currentData.product}, Tamanho: ${currentData.size}, Quantidade: ${currentData.qty}`;
-    const url = `https://wa.me/5524992618871?text=${encodeURIComponent(msg)}`;
-    window.open(url, '_blank');
-}
-</script></body></html>
+</body>
+</html>
